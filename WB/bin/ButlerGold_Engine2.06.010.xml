@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Entry>
+	<Project id="104">ButlerGold_Engine</Project>
+	<Date>16.12.2020 11:09:00</Date>
+	<Version>2.06.010</Version>
+	<State>release</State>
+	<Author>sof03</Author>
+	<Description>languages</Description>
+	<Changelog>
+		<Change>2.06.010 - 16.12.2020</Change>
+		<Change>Bug ---- - languages</Change>
+	</Changelog>
+	<Setting id="binary">
+		<Baudrate>1</Baudrate>
+		<NNB>1</NNB>
+		<CRIS>0</CRIS>
+		<BinaryPath>Butler_Gold/Engine</BinaryPath>
+	</Setting>
+</Entry>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Entry>
+	<Project id="99">Laderegler</Project>
+	<Date>28.04.2020 10:05:29</Date>
+	<Version>1.03.019</Version>
+	<Author>Alexander Traxler</Author>
+	<ChangeLog>
+		<Change>Ausgänge für Signalleuchte hinzugefügt</Change>
+		<Change>Ladestrom auf 18.5A max. erhöht</Change>
+	</ChangeLog>
+	<Setting id="binary">
+		<Baudrate>125</Baudrate>
+		<CRIS>11</CRIS>
+		<NNB>12</NNB>
+		<BinaryPath>Butler_Gold/Laderegler</BinaryPath>
+	</Setting>
+</Entry>

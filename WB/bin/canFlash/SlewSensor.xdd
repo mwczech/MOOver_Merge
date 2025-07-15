@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CANopenObjectList>
+  <CANopenObject index="1000" name="deviceType">
+      <CANopenSubObject subIndex="0x00" name="deviceProfile" dataType="07" access="ro" default="0x6001048" />
+  </CANopenObject>
+  <CANopenObject index="1012" name="Standard Configuration">
+      <CANopenSubObject subIndex="0x00" name="nOfEntries" dataType="05" access="ro" default="0x01" />
+      <CANopenSubObject subIndex="0x01" name="standard config" dataType="05" access="rw" default="4" />
+  </CANopenObject>  
+  <CANopenObject index="2102" name="configuration">
+      <CANopenSubObject subIndex="0x00" name="nOfEntries" dataType="05" access="ro" default="0x01" />
+      <CANopenSubObject subIndex="0x07" name="configuration.magInvert" dataType="05" access="rw" default="1" />
+      <CANopenSubObject subIndex="0x08" name="configuration.offset" dataType="08" access="rw" default="0" />
+	  <CANopenSubObject subIndex="0x09" name="configuration.magBreakThresholdPos" dataType="08" access="rw" default="200" />
+	  <CANopenSubObject subIndex="0x14" name="configuration.magBreakHystPos" dataType="08" access="rw" default="200" />
+  </CANopenObject>
+</CANopenObjectList>

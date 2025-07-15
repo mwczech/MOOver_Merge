@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CANopenObjectList>
+	<CANopenObject index="1000" name="deviceType">
+        <CANopenSubObject subIndex="00" name="deviceProfile" dataType="07" access="ro" default="0x20192" />
+    </CANopenObject>
+      
+	<CANopenObject index="0x6092" name="feed_constant">
+		<CANopenSubObject subIndex="00" name="nOfEntries"      dataType="05" access="ro" default="0x01"   />
+		<CANopenSubObject subIndex="0x01" name="feed_constant_feed" dataType="07" access="rw" default="1000" />
+	</CANopenObject>
+	
+	<CANopenObject index="0x6083" name="profile_acceleration">
+		<CANopenSubObject subIndex="00" name="nOfEntries"      dataType="05" access="ro" default="0x01"   />
+		<CANopenSubObject subIndex="0x00" name="profile_acceleration" dataType="07" access="rw" default="40000" />
+	</CANopenObject>
+	
+	<CANopenObject index="0x6084" name="profile_deceleration">
+		<CANopenSubObject subIndex="00" name="nOfEntries"      dataType="05" access="ro" default="0x01"   />
+		<CANopenSubObject subIndex="0x00" name="profile_deceleration" dataType="07" access="rw" default="40000" />
+	</CANopenObject>
+	
+	<CANopenObject index="0x607F" name="max_profile_velocity">
+		<CANopenSubObject subIndex="00" name="nOfEntries"      dataType="05" access="ro" default="0x01"   />
+		<CANopenSubObject subIndex="0x00" name="max_profile_velocity" dataType="07" access="rw" default="25000" />
+	</CANopenObject>
+	
+	<CANopenObject index="0x6100" name="current_control_parameters">
+		<CANopenSubObject subIndex="00" name="nOfEntries"      dataType="05" access="ro" default="0x01"   />
+		<CANopenSubObject subIndex="0x01" name="current gain_p" dataType="07" access="rw" default="1100" />
+		<CANopenSubObject subIndex="0x02" name="current gain_i" dataType="07" access="rw" default="1100000" />
+		<CANopenSubObject subIndex="0x03" name="current kw" dataType="07" access="rw" default="0" />
+		<CANopenSubObject subIndex="0x04" name="current ku" dataType="07" access="rw" default="0" />
+	</CANopenObject>
+	
+	<CANopenObject index="0x6101" name="velocity_control_parameters">
+		<CANopenSubObject subIndex="00" name="nOfEntries"      dataType="05" access="ro" default="0x01"   />
+		<CANopenSubObject subIndex="0x01" name="velocity gain_p" dataType="07" access="rw" default="1000" />
+		<CANopenSubObject subIndex="0x02" name="velocity gain_i" dataType="07" access="rw" default="2000" />
+	</CANopenObject>
+	
+	<CANopenObject index="0x6073" name="current limit">
+		<CANopenSubObject subIndex="00" name="nOfEntries"      dataType="05" access="ro" default="0x01"   />
+		<CANopenSubObject subIndex="0x00" name="current limit" dataType="06" access="rw" default="350" />
+	</CANopenObject>
+</CANopenObjectList>

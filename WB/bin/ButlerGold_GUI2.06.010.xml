@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Entry>
+	<Project id="105">ButlerGold_GUI</Project>
+	<Date>16.12.2020 11:11:00</Date>
+	<Version>2.06.010</Version>
+	<State>release</State>
+	<Author>sof03</Author>
+	<Description>languages</Description>
+	<Changelog>
+		<Change>2.06.010	 16.12.2020</Change>
+		<Change>Bug ---- - languages</Change>
+		<Change>2.06.006	 19.12.2019</Change>
+		<Change>Bug ---- - some languages</Change>
+		<Change>2.06.004</Change>
+		<Change>Bug ---- - some languages</Change>
+		<Change>2.06.002</Change>
+		<Change>Bug 5221 - set parkstation to real position in the map</Change>
+		<Change>2.06.001 - TT.01.2018</Change>
+		<Change>Bug ---- - changed setting::dealerID and setting::customername to string data type</Change>
+		<Change>Bug ---- - removed QObject derivation in AbstractModel, speeding up project compilation</Change>
+		<Change>Bug ---- - language option zh ( chinese )</Change>
+		<Change>2.05.006 - 20.12.2017</Change>
+		<Change>Bug 5160 - remove checkbox show magnets</Change>
+		<Change>Bug 5159 - remove checkbox show emcy drive</Change>
+		<Change>2.05.004 - 19.12.2017</Change>
+		<Change>Bug 5029 - Uhr in der Statusleiste verbergen wenn Buchten deaktiviert sind</Change>
+		<Change>Bug 5030 - Buchten Abweichung und Positionskorrektur Einheit in cm</Change>
+		<Change>Bug 5033 - Standardwert für Typ Motor auf Eibl schwarz ändern</Change>
+		<Change>Bug 5039 - minimal wert für Portionsgewicht 10g</Change>
+		<Change>Bug 5057 - abdosiertes Gewicht nach dem berechnen wieder auf 0 stellen</Change>
+		<Change>Bug 5120 - cFrmExport::progressTimerUpdate() not stopped</Change>
+		<Change>Bug 5110 - Butler Kalibrieren</Change>
+		<Change>Bug 5102 - gui crash if bays are empty and you click bay group -> details </Change>
+		<Change>2.05.002 - 13.04.2017</Change>
+		<Change>Bug 5002 - board-settings unter windows anzeigen</Change>
+		<Change>Bug ---- - add Webconnect login data</Change>
+		<Change>2.04.002 - 23.02.2017</Change>
+		<Change>2.04.000 - 18.02.2017</Change>
+		<Change>Bug 4994 - gleiche symbole buchten "pfad", "zu strecke"</Change>
+		<Change>Bug 4996 - bucht/daten: kunde braucht nur KF</Change>
+		<Change>Bug 5017 - checkbox advanced settings -> magnetlineal</Change>
+		<Change>Bug 4748 - toolbox: magnet derivation: clear table</Change>
+		<Change>Bug 4790 - schnecke ein bei magnete einlernen</Change>
+		<Change>Bug 5015 - rotate fixpoint</Change>
+		<Change>Bug ---- - FillStation parameters in Einstellungen->Kraftfutter</Change>
+		<Change>Bug ---- - Park position, fillStation position in ErweiterteEinstellungen</Change>
+		<Change>Bug ---- - setting option hasBay</Change>
+		<Change>Bug ---- - split Bay/Data into /General and /Details</Change>
+		<Change>Bug 3761 - re-activated darker button-pressed-color</Change>
+		<Change>2.03.001 - 31.01.2017</Change>
+		<Change>Bug ---- - show MagnetDelta in manual mode too</Change>
+		<Change>Bug 5001 - sprache ändern: sicherheitsrückfrage</Change>
+		<Change>Bug 4998 - übersichten: sofort zu "daten" springen</Change>
+		<Change>Bug 4995 - Buttongruppe "strecke", "fahrten", "buchten"</Change>
+		<Change>Bug 4993 - Silofüllstand mitschreiben</Change>
+		<Change>Bug 5012 - Fehlerliste wird nicht mehr geöffnet</Change>
+		<Change>Bug 5007 - Text außerhalb bei Popup Butlerposition manuell setzen</Change>
+		<Change>2.02.012 - 18.01.2017</Change>
+		<Change>Bug 4973 - Punktdetails "Befüllen", "Befüllen weg" verwaist</Change>
+		<Change>Bug ---- - Texte "Kraftfutter", "Befüllung" umgestellt auf defines	</Change>
+		<Change>Bug ---- - diverse Texte wurden angepasst</Change>
+		<Change>Bug 4541 - umbenennen: "Bei Fehler Fahrt stoppen" -> "Bei Fehler keine weiteren Fahrten mehr"</Change>
+		<Change>Bug 4531 - Fahrten: checkbox umbenennen in "für heute erledigt"</Change>
+		<Change>Bug 4981 - show emcy drive default deselected (see screenchot)</Change>
+		<Change>Bug 4985 - Fahrten: beide KF in eine Tabelle packen</Change>
+		<Change>Bug 4984 - Button Fahrten/gehe zu Strecke kleiner, in Submenü</Change>
+		<Change>Bug 4982 - Spaltenbreiten Fahrten-Daten</Change>
+		<Change>Bug 4983 - Fahrt benennung schöner</Change>
+		<Change>Bug 4977 - Handbetrieb: Anzeigeänderunge</Change>
+		<Change>Bug ---- - hinzugefügt: Einstellungen/Service</Change>
+		<Change>2.02.010 - 15.12.2016</Change>
+		<Change>Bug 4936 - Lockfutter/Buchten/FesterWinkel</Change>
+		<Change>Bug 4951 - Butler Daten Export/Import</Change>
+		<Change>2.02.008 - 04.11.2016</Change>
+		<Change>Bug 4829 - Butler position manuell setzen ist buggy</Change>
+		<Change>Bug 4927 - change customer name/number/id in advanced settings dont work</Change>
+		<Change>Bug 4925 - possible to add a fillpoint (track editor) when no fillstation is defined</Change>
+		<Change>Bug 4926 - add bay group</Change>
+		<Change>Bug 4825 - show charger monitor software version in erw. Einstellungen</Change>
+		<Change>Bug 4822 - node names for drives</Change>
+		<Change>Bug 4824 - screen "erweiterte Einstellungen" Kraftfutter 1</Change>
+		<Change>Bug 4868 - Buchten und Streckeneditor zusammen führen</Change>
+		<Change>Bug 4907 - rotate function fix point only two digits possible</Change>
+		<Change>2.02.006 - 06.09.2016</Change>
+		<Change>Bug 4879 - error message add drive without track</Change>
+		<Change>Bug 4878 - delete Button in drive menu is disabled </Change>
+		<Change>Bug 4892 - after changing track KF bay assignment dont will be updated</Change>
+		<Change>Bug 4882 - trackeditor position of arrow buttons</Change>
+		<Change>Bug 4896 - Bay Tieranzahl only two digits possible</Change>
+		<Change>Bug 4900 - fill full sensor change text from AUS to LEER</Change>
+		<Change>Bug 4901 - show xy coordinates in reference editor</Change>
+		<Change>2.02.004 - DD.MM.2016</Change>
+		<Change>Bug ---- - Import-Export for Windows GUI	</Change>
+		<Change>Bug 4743 - "Fullscreen mode" for PC-application(settingsFile->extendedSize=1)</Change>
+		<Change>Bug 4517 - Tool: Drehen um Punkt: Drehpunkt auswählbar machen</Change>
+		<Change>Bug 4543 - Referenzpunkteditor: Polung der Magnete visualisieren: rot/grün</Change>
+		<Change>Bug 4857 - Anzeige IP-Adresse in einstellungen</Change>
+		<Change>Bug 4687 - Zoom-buttons bei "Butler positionieren" nicht ganzflächig anwählbar</Change>
+		<Change>Bug 4518 - Referenzpunkte: verschiebung auf fixe koordinate</Change>
+		<Change>Bug 4833 - Buchteditor komfortabel machen</Change>
+		<Change>Bug 4867 - Testauswurf stoppen bei Menü verlassen</Change>
+		<Change>Bug 4874 - es kann keine zweite befüllstation im track editor ausgewählt werden</Change>
+		<Change>Bug 4891 - is trackpoint set to filling and trommelspeed=0 than engine process crash</Change>
+		<Change>Bug 4883 - Bucht Anlegen</Change>
+		<Change>2.02.004 - 04.07.2016</Change>
+		<Change>Bug 4774 - DB Speicher und wederherstellen</Change>
+		<Change>Bug 4844 - während teachmagnet werden keine Magnete in der Karte angezeigt</Change>
+		<Change>Bug 4850 - Parkposition</Change>
+		<Change>Bug 4802 - Magnet Punkt anzeigen</Change>
+		<Change>2.02.002 - 21.06.2016</Change>
+		<Change>Bug 4786 - nag-screen "kundendaten" kommt mehrfach und alle paar sekunden</Change>
+		<Change>Bug 4793 - set max manual tower speed to +/-50</Change>
+		<Change>Bug 4798 - no error symbol on the top in buchten screen</Change>
+		<Change>Bug 4800 - Fahrt Übersicht</Change>
+		<Change>Bug 4799 - set steigung with button "steigung zurücksetzen" to 1 (not 0)</Change>
+		<Change>Bug 4815 - set starttime for bay automatically</Change>
+		<Change>Bug 4826 - edit field for magnetSensorThreshold in erw. einstellungen -> ML</Change>
+		<Change>Bug 4817 - show sensorFieldStrength in GUI from DB</Change>
+		<Change>2.02.001 - 10.05.2016</Change>
+		<Change>Bug 4784 - enter kundennummer, name, händlerID</Change>
+		<Change>Bug ---- - reinstalled version comparison: gui, engine minor release numbers</Change>
+		<Change>2.01.004 - TT.MM.2016</Change>
+		<Change>Bug 4768 - Animation von Butler in Bucht Screen</Change>
+		<Change>Bug ---- - Button: "gehe zu strecke" in "fahrten"</Change>
+		<Change>Bug ---- - Buttons umsortiert (Hauptmenü, Einstellungen)</Change>
+		<Change>Bug 4747 - change route color for "reverse" track parts</Change>
+		<Change> </Change>
+		<Change>2.01.001 - 09.03.2016</Change>
+		<Change>Bug 4525 - Uhrzeiteingabe: buttons für +15 und -15 machen</Change>
+		<Change>Bug 4575 - Service-Tag nummer permanent anzeigen</Change>
+		<Change>Bug 4752 - new language: russian</Change>
+		<Change>Bug 4749 - delete magnet in referencposition not possible</Change>
+		<Change>Bug 4751 - fehlerhafte implementierung GUI "Execute Query"</Change>
+		<Change>Bug 4753 - GUI version 2 must not start with engine v1 running</Change>
+		<Change>Bug 4762 - Streckeneditor: no update of track lines</Change>
+		<Change>Bug 4721 - testauswurf for confeed </Change>
+		<Change>Bug 4769 - Fütterungszeit setzen</Change>
+		<Change>Bug 4766 - butler symbol layer is behind bay layer</Change>
+		<Change>Bug 4772 - Kraftfutterdialoge ausblenden wenn kein kraftfutter vorhanden</Change>
+		<Change>Bug 4096 - new feature: "buchten" and "groups"</Change>
+		<Change>1.05.000 - TT.MM.2015</Change>
+		<Change>Bug ---- - FrmFehler: suppressor Map for error messages</Change>
+		<Change>Bug ---- - FrmFahrten: error list button </Change>
+		<Change>Bug 4549 - umbenennen: Übersichten - Fehler: Gerätenummer meist irrelevant, sprechende Namen verwenden</Change>
+		<Change>Bug 4565 - nach "neuer Punkt hinzufügen" soll dieser neue Punkt gleich selektiert sein</Change>
+		<Change>Bug ---- - nachgebessert: Mapeditor: manchmal waren punkte nicht mehr selektierbar, wenn vorher anderer mapeditor offen war</Change>
+		<Change>Bug 4534 - Route: defaultwerte angepasst</Change>
+		<Change>Bug 4537 - Fahrt kopieren: neue fahrt sofort auswählen</Change>
+		<Change>Bug ---- - Fahrteneditor: Fehlermeldung bei "Fahrt löschen": Button weiter ausgegraut</Change>
+		<Change>Bug 4683 - Mapeditor: screen refresh not completely done</Change>
+		<Change>Bug 4595 - karteneditor - features auch auf mehrfachauswahl anwenden</Change>
+		<Change>Bug 4646 - measuring does not show information</Change>
+		<Change>Bug 4716 - Uhrzeit von NTP-Server holen</Change>
+		<Change>Bug 4613 - visualize coordinate correction at magnets</Change>
+		<Change>Bug 4717 - EMCY - after press EMCY symbol show/hide FrmFahrten</Change>
+		<Change>Bug 4602 - Mapeditor: Zoom "alles" mehrfach gedrückt-> immer wieder anderer Ansicht</Change>
+		<Change>Bug ---	- Insert/Delete working with primary key: FahrtPos, WorldCoordinate, ReferencePositions</Change>
+		<Change>1.04.006 - 04.01.2016</Change>
+		<Change>Bug ---- - un/re-do: sped up</Change>
+		<Change>Bug 4675 - keypad-area does not always disappear</Change>
+		<Change>Bug 4673 - butler manuell auf karte setzen nicht möglich</Change>
+		<Change>Bug 4672 - changing manöver is not stored</Change>
+		<Change>Bug 4620 - Mapeditor: Track Editor: point selectable when only selection of drive should be possible</Change>
+		<Change>Bug 4551 - Butler positionieren: Butler nicht unendlich verkleinern</Change>
+		<Change>1.04.005 - 18.12.2015</Change>
+		<Change>Bug 4623 - mapeditor: fahrt ändern: punkte änder/selektierbar schon im auswahlschirm</Change>
+		<Change>Bug 4628 - Toolbox: Copy/Paste: absturz bei Anfügen an letzten Punkt</Change>
+		<Change>Bug 4628 - Toolbox: Copy/Paste: löschen eines punktes in einer fahrt löschte alle punkte mit derselben id (auch andere fahrten)</Change>
+		<Change>Bug xxxx - Toolbox: Copy/Paste: Einfügen einer kopierten Liste haute die IDs durcheinander </Change>
+		<Change>Bug 4620 - Mapeditor: Track Editor: point selectable when only selection of drive should be possible</Change>
+		<Change>Bug 4608 - Fehlermeldung Sicherheitsleiste hinten umbenennen</Change>
+		<Change>Bug 4644 - gui crashes when measuring</Change>
+		<Change>Bug 4597 - undo/redo in details</Change>
+		<Change>Bug 4652 - Punkt-Selekt-Tool: eingabe erfolgt mittels index, nicht ID</Change>
+		<Change>Bug ---- - select points: range now from 1 to 9999 statically defined</Change>
+		<Change>Bug ---- - select points: several changes</Change>
+		<Change>Bug 4611 - zoom in - viewpoint changes</Change>
+		<Change>Bug 4612 - magnete einlernen - magnet gleich zeichnen</Change>
+		<Change>Bug 4641 - point selection - wrong point selected</Change>
+		<Change>Bug 4658 - Tools: remove first, last id : AddPoint</Change>
+		<Change>Bug 4659 - Tools: remove first, last id : Ausrichten</Change>
+		<Change>Bug 4660 - Tools: remove first, last id : Details</Change>
+		<Change>Bug 4661 - Tools: remove first, last id : Measure</Change>
+		<Change>Bug 4662 - Tools: remove first, last id : ModifyAngles</Change>
+		<Change>Bug 4663 - Tools: remove first, last id : RemovePoint</Change>
+		<Change>Bug 4664 - Tools: remove first, last id : RotateAll</Change>
+		<Change>Bug 4665 - Tools: remove first, last id : RotatePoint </Change>
+		<Change>Bug 4666 - Tools: remove first, last id : Scale</Change>
+		<Change>Bug 4667 - Tools: remove first, last id : SelectPoints</Change>
+		<Change>Bug 4656 - Toolbox: Funktionen testen mit Löchern</Change>
+		<Change>Bug 4651 - HistoryPointModel: don't use ID as list index</Change>
+		<Change>1.04.004 - 27.11.2015</Change>
+		<Change>Bug 4594 - Tool: Messen: funktionierte noch nicht</Change>
+		<Change>Bug 4599 - messen funktioniert nicht</Change>
+		<Change>Bug 4572 - eibl motor type wrong?</Change>
+		<Change>Bug 4532 - Handstart -> "muß vom Anwender gestartet werden"</Change>
+		<Change>Bug 4571 - undo funktioniert teilweise nicht</Change>
+		<Change>Bug 4580 - Route editor: removal of route points creates "holes" in the routes</Change>
+		<Change>Bug 4574 - route wird nicht neu gezeichnet</Change>
+		<Change>Bug 4600 - Anzeigegrenzen erweitern nach Operationen</Change>
+		<Change>Bug 4591 - Fahrten-Editor: Dreh-Kreise ausblenden</Change>
+		<Change>Bug 4592 - doppeltes update?</Change>
+		<Change>Bug 4590 - Fahrteneditor: Dicke Linie ausblenden</Change>
+		<Change>Bug 4604 - MapEditor: Toolbox: kleine icons?</Change>
+		<Change>Bug ---- - RouteEdit:Tool Winkelverstärung: bei selektion des gesamten bereiches stürzte GUI ab</Change>
+		<Change>Bug 4483 - resolve overlapping bounding rects</Change>
+		<Change>Bug 4511 - MapEditor: einzelne Punkte per ID anwählbar machen</Change>
+		<Change>Bug 4511 - Referenzpunkte: ID eines Magneten lässt sich ändern</Change>
+		<Change>Bug 4609 - toolbox: messen: siqseq</Change>
+		<Change>Bug 4609 - toolbox: messen: Abstände in X und Y-Richtung invertiert</Change>
+		<Change>Bug 4606 - nachfolgende punkte mit behandeln</Change>
+		<Change>Bug 4440 - Verschieben: Fragmente in der Anzeige</Change>
+		<Change>Bug 4540 - Butler Welt erst ab 3 Punkten anzeigen. default: 2 punkte, die aber nicht angezeigt werden</Change>
+		<Change>Bug 4563 - Tastatur Funktioniert teilweise nicht</Change>
+		<Change>1.04.003 - 05.10.2015</Change>
+		<Change>Bug 4558 - GUI crashes when button "Erw. Einstellungen Geräte - ETH" is clicked</Change>
+		<Change>Bug 4521 - GUI stürzt ab bei bestimmten MapEditor-Interaktionen</Change>
+		<Change>Bug 4541 - umbenennen: "Bei Fehler Fahrt stoppen" -> "Bei Fehler keine weiteren Fahrten mehr"</Change>
+		<Change>Bug 4501 - Absturz bei "Feststellbremse lösen" ohne vorhandenen Butler</Change>
+		<Change>Bug 4552 - Butler positionieren: buttons entfernen</Change>
+		<Change>Bug 4535 - "verstecke" button "Ausparken"</Change>
+		<Change>Bug 4536 - button "route teachen" verstecken</Change>
+		<Change>Bug 4531 - Fahrten: checkbox umbenennen in "für heute erledigt"</Change>
+		<Change>Bug 4524 - Einstellungen: Kalibrieren: stürzt ab, umbenennen</Change>
+		<Change>Bug 4520 - Mapeditor: bei wechsel Selektionsmodus Kontextmenü disablen</Change>
+		<Change>Bug 4555 - neuer Motortyp: Eibl 2 </Change>
+		<Change>Bug 4522 - Butler"hintern" mitvisualisieren bei routeneditor</Change>
+		<Change>Bug 4562 - GUI stürzt ab: Klappensensor falsche nnb</Change>
+		<Change>1.04.002 - 08.09.2015</Change>
+		<Change>Bug 4488 - Route: add new point fails when no "data" is present</Change>
+		<Change>Bug 4465 - ButlerGui does not terminate (Windows)</Change>
+		<Change>Bug 4452 - Ethernet-Checkings optimieren</Change>
+		<Change>Bug ---- - Klappensensor:Winkel und offset</Change>
+		<Change>Bug ---- - Tool zum Messen</Change>
+		<Change>Bug 4443 - Karteneditor: "irgendein raster"</Change>
+		<Change>Bug 4493 - Screen Referenz Punkte einlernen Slider für Trommel</Change>
+		<Change>Bug 4444 - maßstab</Change>
+		<Change>Bug 4489 - "Kundennummer" eingabefeld ist zu lange</Change>
+		<Change>Bug 4453 - buttons ethernet-settings gleich anordnen</Change>
+		<Change>Bug 4484 - Selected WLAN SSID should write name into SSID field</Change>
+		<Change>Bug 4507 - implementiere: Drehung um bestimmten Punkt</Change>
+		<Change>Bug 4446 - routeneditor: route mit butler"aussen"kontour darstellen</Change>
+		<Change>1.04.001 - TT.MM.2015</Change>
+		<Change>Bug 4467 - Kundenname /Nummer eingeben </Change>
+		<Change>Bug 4469 - connect: No such signal QComboBox::current IndexChanged(int)</Change>
+		<Change>Bug ---- - in "minimal mode": bei tastatur wurde zuviel "leer" angezeigt</Change>
+		<Change>Bug 4462 - Referenzpunkteditor: implementiere Geradenerkennung</Change>
+		<Change>Bug 4480 - removal of reference point: "closing" of resulting gap in point numbers</Change>
+		<Change>Bug 4434 - map/route editor: undo/redo buttons</Change>
+		<Change>1.03.009 - 02.07.2015</Change>
+		<Change>Bug xxxx - referenzpunkte: reichweite magn. feld zus. dargestellt</Change>
+		<Change>Bug xxxx - Butler "folgen": Butler immer im Mittelpunkt, Anzeige lässt sich wieder zoomen</Change>
+		<Change>Bug xxxx - Butler "folgen": Anzeigefehler behoben (nur Butlermitte fuhr weiter...) </Change>
+		<Change>Bug xxxx - fixed drawing artefacts when moving items in map</Change>
+		<Change>Bug xxxx - introduced first version of "minimal" mode: butler reference point editor</Change>
+		<Change>Bug 4353 - Language selection: pulldown-menu instead of buttons</Change>
+		<Change>Bug 4456 - kein "französisch" auswählbar</Change>
+		<Change>Bug 4455 - tastatur blendet aus, grauer bereich bleibt</Change>
+		<Change>Bug 4435 - referenzpositionen: reichweite visualisieren</Change>
+		<Change>Bug 4414 - kreis um magnet zeichnen</Change>
+		<Change>Bug 4442 - ButlerWelt-Punkte lassen sich nicht selektioeren</Change>
+		<Change>Bug 4447 - punkte verschieben: hintergrundrendering fehlerhaft</Change>
+		<Change>Bug 4372 - Referenzpunkte - Schrift zu klein</Change>
+		<Change>Bug 4394 - Trennzeichen fehlen</Change>
+		<Change>Bug 4418 - connect fails during startup</Change>
+		<Change>1.03.008 - 17.06.2015</Change>
+		<Change>Bug 4273 - Usability Karteneditor: Touchfläche Selektion verbessert</Change>
+		<Change>Bug 4424 - Handbetrieb: "Status", "Dauer", "Strecke", "Batterie", "Strom" nicht übersetzt</Change>
+		<Change>1.03.006 - 09.06.2015</Change>
+		<Change>reduce SDO communication to PDO, timers start after refresh function</Change>
+		<Change>1.03.003 - TT.MM.2015</Change>
+		<Change>Bug ---- - Sprachen hinzugefügt: niederländisch und tschechisch</Change>
+		<Change>1.03.002 - 22.04.2015</Change>
+		<Change>Bug 4341 - Name des Tages wird nicht übersetzt</Change>
+		<Change>Bug ---- - memleak in graphicsItem fixed</Change>
+		<Change>Bug ---- - fixed erroneous reading of dns config</Change>
+		<Change>Bug ---- - switched butler icon from schematic to rendering</Change>
+		<Change>1.03.001 - 3.04.2015</Change>
+		<Change>4301 - neues feature: "bremse lüften"</Change>
+		<Change>4288 - Fahrt kopieren dauert zu lange</Change>
+		<Change>1.02.001 - 12.03.2015</Change>
+		<Change>4274 - Usability Karteneditor: Zoom ändern</Change>
+		<Change>4272 - Punkt selektieren in der Karte: Markierung soll immer erhalten bleiben wenn man scrollt</Change>
+		<Change>4264 - sonderzeichen für WLAN-Keys</Change>
+		<Change>4261 - Fahrten/Daten : Startzeit ändern: Markierungsindex in Auswahlliste ändert sich</Change>
+		<Change>4259 - Butler Warnings Grafik verbessern</Change>
+		<Change>4258 - Teaching-Mode -> Manual-Mode Gui Visualisierung nicht korrekt</Change>
+		<Change>4254 - weniger Debug Meldung</Change>
+		<Change>4233 - Fahrt kopieren/neu/loeschen disablen während aktion aktiv ist</Change>
+		<Change>4219 - "Ladestation" anstelle anderer Begriffe verwenden</Change>
+		<Change>4218 - Bezeichnung Querfördereinrichtung: "Schnecke"</Change>
+		<Change>4187 - referenzpunkte teachen</Change>
+		<Change>4164 - Fehlermeldung bei Fahrt kopieren </Change>
+		<Change>1.02.000 - 23.02.2015</Change>
+		<Change>4259 - Butler Warnings Grafik verbessern</Change>
+		<Change>4258 - Teaching-Mode -> Manual-Mode Gui Visualisierung nicht korrekt</Change>
+		<Change>4254 - weniger Debug Meldung</Change>
+		<Change>4248 - erweiterte Einstellungen->Magnetlineal->Kalibrierung</Change>
+		<Change>4247 - butlerEvo Linux Prozessabsturz</Change>
+		<Change>4246 - butler animation in Karte Butler Position Setzen</Change>
+		<Change>4244 - Butler-Visualisierung: Klappen/Sicherheitsleiste Visualisierung</Change>
+		<Change>4243 - Karteneditor: "Folgen" Zoomlevel</Change>
+		<Change>4242 - Größenanpassung Butler-Icon im Karteneditor</Change>
+		<Change>4241 - selektierte Fahrt ändert sich bei Änderung der Startzeit</Change>
+		<Change>4239 - Einlernen: nur ein Button "Fertig", Einlernen Abbrechen Button löschen</Change>
+		<Change>4238 - Zustand nicht anzeigen bei den Referenz Punkte</Change>
+		<Change>4237 - Version Magnetlineal anzeigen</Change>
+		<Change>4236 - Teachen: Nach "Einlernen Fertig" clicken zum Ursprungs-Formular zurückhüpfen</Change>
+		<Change>4235 - When abort is pressed, all found magnets are in database</Change>
+		<Change>4234 - Magnet einlernen Frage: Es wurde ein neuer Magnet gefunden ja/nein vertauscht</Change>
+		<Change>4232 - TCP-Exception: Nach OK-Click ins Hauptmenü wechseln</Change>
+		<Change>4227 - anzeigen von emcy fahrten</Change>
+		<Change>4226 - GUI stürzt ab (kein Prozess mehr) wenn Datum eingestellt wird</Change>
+		<Change>4222 - MesageBox Teachen</Change>
+		<Change>4219 - "Ladestation" anstelle anderer Begriffe verwenden</Change>
+		<Change>4218 - Bezeichnung Querfördereinrichtung: "Schnecke"</Change>
+		<Change>4207 - route teachen fuktioniert nicht aus dem handbetrieb</Change>
+		<Change>4204 - routeneditor - bereich beim eintritt nicht aktiviert</Change>
+		<Change>4201 - butler wird in der karte verdreht angezeigt</Change>
+		<Change>4191 - 2 Nachkommastellen bei Grad und Faktor in ButlerMapEditor</Change>
+		<Change>4187 - referenzpunkte teachen</Change>
+		<Change>4174 - Karten-Editor: Viewport verschiebt sich, wenn man auf "Pfad Editieren" clickt</Change>
+		<Change>4173 - Punkte in der Karte mit fixen Pixel-Größen anzeigen</Change>
+		<Change>4165 - slider in der karte "flackern" bei folgen angehakt</Change>
+		<Change>4164 - Fehlermeldung bei Fahrt kopieren</Change>
+		<Change>4163 - Karte: Verschieben eines Punktes erst beim 2x clicken</Change>
+		<Change>4162 - slider in der karte könnten größer sein</Change>
+		<Change>4156 - Butler manuell auf Koordinate setzen</Change>
+		<Change>4155 - Teilstrecke einer Fahrt auf andere Fahrt kopieren</Change>
+		<Change>4143 - Software-Refaktorisierung: OD und SDO Zugriffe kapseln</Change>
+		<Change>4142 - Umlaute in fehlerhafter Darstellung</Change>
+		<Change>4141 - Uebersichten/Logbuch zu langsam</Change>
+		<Change>4137 - Einstellungen Parken: Werte in GUI änderbar machen</Change>
+		<Change>4136 - Info Message Mechanismus für GUI</Change>
+		<Change>4132 - Editor für Welt-Koordinaten</Change>
+		<Change>4131 - Abgespeicherte Soll-Fahrt grau hinterlegen bei aktiver Fahrt</Change>
+		<Change>4119 - batterieladezustand "verschönern"</Change>
+		<Change>4113 - Neue einträge in GUI markieren</Change>
+		<Change>4104 - Daten in Fahrt-Pfad-Editieren-Details für Multi-Select-Punkte änderbar machen</Change>
+		<Change>4103 - Erweiterter Bereich in ButlerGUI</Change>
+		<Change>4087 - fahrten - problem mit "fahrt gestartet"?</Change>
+		<Change>4079 - Butler Evo process consummed memory</Change>
+		<Change>4067 - Fahrt kopieren</Change>
+		<Change>3956 - Assistent bei Kalibrierung</Change>
+		<Change>3240 - zwei DNS-IPs im settings-file, jedoch nur eine in GUI </Change>
+		<Change>1.01.005 - 27.10.2014</Change>
+		<Change>Bug 3937 - ordner "SetupCowMaster" im rootfs</Change>
+	</Changelog>
+	<Setting id="binary">
+		<Baudrate>0</Baudrate>
+		<NNB>1</NNB>
+		<CRIS>0</CRIS>
+		<BinaryPath>Butler_Gold/GUI</BinaryPath>
+	</Setting>
+</Entry>

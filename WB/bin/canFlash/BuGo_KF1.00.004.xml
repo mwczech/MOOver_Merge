@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Entry>
+	<Project id="114">BuGo_KF</Project>
+	<Date>26.08.2021 15:23:00</Date>
+	<Version>1.00.004</Version>
+	<State>beta</State>
+	<Author>Andreas Kaiselgruber</Author>
+	<Description> </Description>
+	<Changelog>
+		<Change>1.00.004 - 26.08.2021</Change>
+		<Change>DIP switch: 1=Kraftfutter 1 (node id 16); 2=Kraftfutter 2 (node id 17)</Change>
+	</Changelog>
+	<Hardware>IFCAN 3.x</Hardware>
+	<Setting id="binary">
+		<Baudrate>125</Baudrate>
+		<NNB>0</NNB>
+		<CRIS>0</CRIS>
+		<BinaryPath>Butler_Gold/Kraftfutter</BinaryPath>
+	</Setting>
+</Entry>

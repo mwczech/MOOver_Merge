@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <CANopenObjectList>
+          <CANopenObject index="1000" name="deviceType">
+            <CANopenSubObject subIndex="00" name="deviceProfile"         dataType="07" access="ro" default="0x0000033"   />
+      </CANopenObject>
+  
+          <CANopenObject index="1001" name="errorRegister">
+            <CANopenSubObject subIndex="00" name="errorRegister"         dataType="05" access="ro" default="0x00"         />
+      </CANopenObject>
+    
+          <CANopenObject index="1002" name="manufacturerStatus">
+            <CANopenSubObject subIndex="00" name="manufacturerStatus"    dataType="05" access="ro" default="0x00"         />
+      </CANopenObject>
+    
+          <CANopenObject index="1003" name="errorField">
+            <CANopenSubObject subIndex="00" name="nOfErrors"             dataType="05" access="rw" default="0x00"         />
+      </CANopenObject>
+      
+          <CANopenObject index="1005" name="syncCOBID">
+            <CANopenSubObject subIndex="00" name="syncCOBID"             dataType="07" access="rw" default="0x40000080"   />
+      </CANopenObject>
+      
+          <CANopenObject index="1006" name="commClyclePeriod">
+            <CANopenSubObject subIndex="00" name="commCyclePeriod"       dataType="07" access="rw" default="0x000186A0"   />
+      </CANopenObject>
+      
+          <CANopenObject index="1007" name="syncWindowLength">
+            <CANopenSubObject subIndex="00" name="syncWindowLength"      dataType="07" access="rw" default="0x000186A0"   />
+      </CANopenObject>
+
+    <CANopenObject index="100A" name="swVersion">
+            <CANopenSubObject subIndex="00" name="swVersion"             dataType="09" access="ro" default="00.00.000"   />
+      </CANopenObject>
+
+    <CANopenObject index="100B" name="nodeID">
+            <CANopenSubObject subIndex="00" name="nodeID"                dataType="05" access="rw" default="0x00000040"   />
+      </CANopenObject>
+      
+          <CANopenObject index="1010" name="storeParameters">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x04"         />
+            <CANopenSubObject subIndex="01" name="saveAll"               dataType="07" access="rw" default="0x00000000"   />
+            <CANopenSubObject subIndex="02" name="saveComm"              dataType="07" access="rw" default="0x00000000"   />
+            <CANopenSubObject subIndex="03" name="saveApp"               dataType="07" access="rw" default="0x00000000"   />
+            <CANopenSubObject subIndex="04" name="saveMan1"              dataType="07" access="rw" default="0x00000000"   />
+      </CANopenObject>
+      
+          <CANopenObject index="1011" name="restoreParameters">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x04"         />
+            <CANopenSubObject subIndex="01" name="restoreAll"            dataType="07" access="rw" default="0x00000000"   />
+            <CANopenSubObject subIndex="02" name="restoreComm"           dataType="07" access="rw" default="0x00000000"   />
+            <CANopenSubObject subIndex="03" name="restoreApp"            dataType="07" access="rw" default="0x00000000"   />
+            <CANopenSubObject subIndex="04" name="restoreMan1"           dataType="07" access="rw" default="0x00000000"   />
+      </CANopenObject>
+
+          <CANopenObject index="1014" name="emcyProducer">
+            <CANopenSubObject subIndex="00" name="cobId"                 dataType="07" access="ro" default="0xC1"         />
+      </CANopenObject>
+      
+      
+          <CANopenObject index="1016" name="heartbeatConsumer">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x0F"         />
+            <CANopenSubObject subIndex="01" name="heartbeatTime1"        dataType="07" access="rw" default="0x00012BB8"   />
+            <CANopenSubObject subIndex="02" name="heartbeatTime2"        dataType="07" access="rw" default="0x00022BB8"   />
+            <CANopenSubObject subIndex="03" name="heartbeatTime3"        dataType="07" access="rw" default="0x00032BB8"   />
+            <CANopenSubObject subIndex="04" name="heartbeatTime4"        dataType="07" access="rw" default="0x00042BB8"   />
+            <CANopenSubObject subIndex="05" name="heartbeatTime5"        dataType="07" access="rw" default="0x00052BB8"   />
+            <CANopenSubObject subIndex="06" name="heartbeatTime6"        dataType="07" access="rw" default="0x00062BB8"   />
+            <CANopenSubObject subIndex="07" name="heartbeatTime7"        dataType="07" access="rw" default="0x00072BB8"   />
+            <CANopenSubObject subIndex="08" name="heartbeatTime8"        dataType="07" access="rw" default="0x00082BB8"   />
+            <CANopenSubObject subIndex="09" name="heartbeatTime9"        dataType="07" access="rw" default="0x00092BB8"   />
+            <CANopenSubObject subIndex="0A" name="heartbeatTimeA"        dataType="07" access="rw" default="0x000A2BB8"   />
+            <CANopenSubObject subIndex="0B" name="heartbeatTimeB"        dataType="07" access="rw" default="0x000B2BB8"   />
+            <CANopenSubObject subIndex="0C" name="heartbeatTimeC"        dataType="07" access="rw" default="0x000C2BB8"   />
+            <CANopenSubObject subIndex="0D" name="heartbeatTime11"       dataType="07" access="rw" default="0x00112BB8"   />
+            <CANopenSubObject subIndex="0E" name="heartbeatTime12"       dataType="07" access="rw" default="0x00122BB8"   />
+            <CANopenSubObject subIndex="0F" name="heartbeatTime13"       dataType="07" access="rw" default="0x00102BB8"   />
+          </CANopenObject>
+          
+          <CANopenObject index="1017" name="heartbeatProducer">
+            <CANopenSubObject subIndex="00" name="heartbeatTime"         dataType="06" access="rw" default="0x03E8"       />
+          </CANopenObject>
+          
+          <CANopenObject index="1018" name="identity">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x04"         />
+            <CANopenSubObject subIndex="01" name="vendorID"              dataType="07" access="ro" default="0x00000033"   />
+            <CANopenSubObject subIndex="02" name="productCode"           dataType="07" access="ro" default="0x00000008"   />
+            <CANopenSubObject subIndex="03" name="revisionNum"           dataType="07" access="ro" default="0x00010001"   />
+            <CANopenSubObject subIndex="04" name="serialNum"             dataType="07" access="ro" default="0x000008FF"   />
+      </CANopenObject>
+    
+          <CANopenObject index="1020" name="verifyConfig">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x02"         />
+            <CANopenSubObject subIndex="01" name="configDate"            dataType="07" access="rw" default="0x00000000"   />
+            <CANopenSubObject subIndex="02" name="configTime"            dataType="07" access="rw" default="0x00000000"   />
+      </CANopenObject>
+  
+    <CANopenObject index="1028" name="emcyConsumer" dataType="0007">
+      <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x7F"     />
+      <CANopenSubObject subIndex="01" name="Node1"                 dataType="07" access="rw" default="0x80000081"   />
+      <CANopenSubObject subIndex="02" name="Node2"                 dataType="07" access="rw" default="0x80000082"   />
+      <CANopenSubObject subIndex="03" name="Node3"                 dataType="07" access="rw" default="0x80000083"   />
+      <CANopenSubObject subIndex="04" name="Node4"                 dataType="07" access="rw" default="0x80000084"   />
+      <CANopenSubObject subIndex="05" name="Node5"                 dataType="07" access="rw" default="0x80000085"   />
+      <CANopenSubObject subIndex="06" name="Node6"                 dataType="07" access="rw" default="0x80000086"   />
+      <CANopenSubObject subIndex="07" name="Node7"                 dataType="07" access="rw" default="0x80000087"   />
+      <CANopenSubObject subIndex="08" name="Node8"                 dataType="07" access="rw" default="0x80000088"   />
+      <CANopenSubObject subIndex="09" name="Node9"                 dataType="07" access="rw" default="0x80000089"   />
+      <CANopenSubObject subIndex="0A" name="NodeA"                 dataType="07" access="rw" default="0x8000008A"   />
+      <CANopenSubObject subIndex="0B" name="NodeB"                 dataType="07" access="rw" default="0x8000008B"   />
+      <CANopenSubObject subIndex="0C" name="NodeC"                 dataType="07" access="rw" default="0x8000008C"   />
+      <CANopenSubObject subIndex="0D" name="NodeD"                 dataType="07" access="rw" default="0x8000008D"   />
+      <CANopenSubObject subIndex="0E" name="NodeE"                 dataType="07" access="rw" default="0x8000008E"   />
+      <CANopenSubObject subIndex="0F" name="NodeF"                 dataType="07" access="rw" default="0x8000008F"   />
+      <CANopenSubObject subIndex="10" name="Node10"                dataType="07" access="rw" default="0x80000090"   />
+      <CANopenSubObject subIndex="11" name="Node11"                dataType="07" access="rw" default="0x80000091"   />
+      <CANopenSubObject subIndex="12" name="Node12"                dataType="07" access="rw" default="0x80000092"   />
+      <CANopenSubObject subIndex="13" name="Node13"                dataType="07" access="rw" default="0x80000093"   />
+      <CANopenSubObject subIndex="14" name="Node14"                dataType="07" access="rw" default="0x80000094"   />
+      <CANopenSubObject subIndex="15" name="Node15"                dataType="07" access="rw" default="0x80000095"   />
+      <CANopenSubObject subIndex="16" name="Node16"                dataType="07" access="rw" default="0x80000096"   />
+      <CANopenSubObject subIndex="17" name="Node17"                dataType="07" access="rw" default="0x80000097"   />
+      <CANopenSubObject subIndex="18" name="Node18"                dataType="07" access="rw" default="0x80000098"   />
+      <CANopenSubObject subIndex="19" name="Node19"                dataType="07" access="rw" default="0x80000099"   />
+      <CANopenSubObject subIndex="1A" name="Node1A"                dataType="07" access="rw" default="0x8000009A"   />
+      <CANopenSubObject subIndex="1B" name="Node1B"                dataType="07" access="rw" default="0x8000009B"   />
+      <CANopenSubObject subIndex="1C" name="Node1C"                dataType="07" access="rw" default="0x8000009C"   />
+      <CANopenSubObject subIndex="1D" name="Node1D"                dataType="07" access="rw" default="0x8000009D"   />
+      <CANopenSubObject subIndex="1E" name="Node1E"                dataType="07" access="rw" default="0x8000009E"   />
+      <CANopenSubObject subIndex="1F" name="Node1F"                dataType="07" access="rw" default="0x8000009F"   />
+      <CANopenSubObject subIndex="20" name="Node20"                dataType="07" access="rw" default="0x800000A0"   />
+      <CANopenSubObject subIndex="21" name="Node21"                dataType="07" access="rw" default="0x800000A1"   />
+      <CANopenSubObject subIndex="22" name="Node22"                dataType="07" access="rw" default="0x800000A2"   />
+      <CANopenSubObject subIndex="23" name="Node23"                dataType="07" access="rw" default="0x800000A3"   />
+      <CANopenSubObject subIndex="24" name="Node24"                dataType="07" access="rw" default="0x800000A4"   />
+      <CANopenSubObject subIndex="25" name="Node25"                dataType="07" access="rw" default="0x800000A5"   />
+      <CANopenSubObject subIndex="26" name="Node26"                dataType="07" access="rw" default="0x800000A6"   />
+      <CANopenSubObject subIndex="27" name="Node27"                dataType="07" access="rw" default="0x800000A7"   />
+      <CANopenSubObject subIndex="28" name="Node28"                dataType="07" access="rw" default="0x800000A8"   />
+      <CANopenSubObject subIndex="29" name="Node29"                dataType="07" access="rw" default="0x800000A9"   />
+      <CANopenSubObject subIndex="2A" name="Node2A"                dataType="07" access="rw" default="0x800000AA"   />
+      <CANopenSubObject subIndex="2B" name="Node2B"                dataType="07" access="rw" default="0x800000AB"   />
+      <CANopenSubObject subIndex="2C" name="Node2C"                dataType="07" access="rw" default="0x800000AC"   />
+      <CANopenSubObject subIndex="2D" name="Node2D"                dataType="07" access="rw" default="0x800000AD"   />
+      <CANopenSubObject subIndex="2E" name="Node2E"                dataType="07" access="rw" default="0x800000AE"   />
+      <CANopenSubObject subIndex="2F" name="Node2F"                dataType="07" access="rw" default="0x800000AF"   />
+      <CANopenSubObject subIndex="30" name="Node30"                dataType="07" access="rw" default="0x800000B0"   />
+      <CANopenSubObject subIndex="31" name="Node31"                dataType="07" access="rw" default="0x800000B1"   />
+      <CANopenSubObject subIndex="32" name="Node32"                dataType="07" access="rw" default="0x800000B2"   />
+      <CANopenSubObject subIndex="33" name="Node33"                dataType="07" access="rw" default="0x800000B3"   />
+      <CANopenSubObject subIndex="34" name="Node34"                dataType="07" access="rw" default="0x800000B4"   />
+      <CANopenSubObject subIndex="35" name="Node35"                dataType="07" access="rw" default="0x800000B5"   />
+      <CANopenSubObject subIndex="36" name="Node36"                dataType="07" access="rw" default="0x800000B6"   />
+      <CANopenSubObject subIndex="37" name="Node37"                dataType="07" access="rw" default="0x800000B7"   />
+      <CANopenSubObject subIndex="38" name="Node38"                dataType="07" access="rw" default="0x800000B8"   />
+      <CANopenSubObject subIndex="39" name="Node39"                dataType="07" access="rw" default="0x800000B9"   />
+      <CANopenSubObject subIndex="3A" name="Node3A"                dataType="07" access="rw" default="0x800000BA"   />
+      <CANopenSubObject subIndex="3B" name="Node3B"                dataType="07" access="rw" default="0x800000BB"   />
+      <CANopenSubObject subIndex="3C" name="Node3C"                dataType="07" access="rw" default="0x800000BC"   />
+      <CANopenSubObject subIndex="3D" name="Node3D"                dataType="07" access="rw" default="0x800000BD"   />
+      <CANopenSubObject subIndex="3E" name="Node3E"                dataType="07" access="rw" default="0x800000BE"   />
+      <CANopenSubObject subIndex="3F" name="Node3F"                dataType="07" access="rw" default="0x800000BF"   />
+      <CANopenSubObject subIndex="40" name="Node40"                dataType="07" access="rw" default="0x000000C0"   />
+      <CANopenSubObject subIndex="41" name="Node41"                dataType="07" access="rw" default="0x800000C1"   />
+      <CANopenSubObject subIndex="42" name="Node42"                dataType="07" access="rw" default="0x800000C2"   />
+      <CANopenSubObject subIndex="43" name="Node43"                dataType="07" access="rw" default="0x800000C3"   />
+      <CANopenSubObject subIndex="44" name="Node44"                dataType="07" access="rw" default="0x800000C4"   />
+      <CANopenSubObject subIndex="45" name="Node45"                dataType="07" access="rw" default="0x800000C5"   />
+      <CANopenSubObject subIndex="46" name="Node46"                dataType="07" access="rw" default="0x800000C6"   />
+      <CANopenSubObject subIndex="47" name="Node47"                dataType="07" access="rw" default="0x800000C7"   />
+      <CANopenSubObject subIndex="48" name="Node48"                dataType="07" access="rw" default="0x800000C8"   />
+      <CANopenSubObject subIndex="49" name="Node49"                dataType="07" access="rw" default="0x800000C9"   />
+      <CANopenSubObject subIndex="4A" name="Node4A"                dataType="07" access="rw" default="0x800000CA"   />
+      <CANopenSubObject subIndex="4B" name="Node4B"                dataType="07" access="rw" default="0x800000CB"   />
+      <CANopenSubObject subIndex="4C" name="Node4C"                dataType="07" access="rw" default="0x800000CC"   />
+      <CANopenSubObject subIndex="4D" name="Node4D"                dataType="07" access="rw" default="0x800000CD"   />
+            <CANopenSubObject subIndex="4E" name="Node4E"                dataType="07" access="rw" default="0x800000CE"   />
+      <CANopenSubObject subIndex="4F" name="Node4F"                dataType="07" access="rw" default="0x800000CF"   />
+      <CANopenSubObject subIndex="50" name="Node50"                dataType="07" access="rw" default="0x800000D0"   />
+      <CANopenSubObject subIndex="51" name="Node51"                dataType="07" access="rw" default="0x800000D1"   />
+      <CANopenSubObject subIndex="52" name="Node52"                dataType="07" access="rw" default="0x800000D2"   />
+      <CANopenSubObject subIndex="53" name="Node53"                dataType="07" access="rw" default="0x800000D3"   />
+      <CANopenSubObject subIndex="54" name="Node54"                dataType="07" access="rw" default="0x800000D4"   />
+      <CANopenSubObject subIndex="55" name="Node55"                dataType="07" access="rw" default="0x800000D5"   />
+      <CANopenSubObject subIndex="56" name="Node56"                dataType="07" access="rw" default="0x800000D6"   />
+      <CANopenSubObject subIndex="57" name="Node57"                dataType="07" access="rw" default="0x800000D7"   />
+      <CANopenSubObject subIndex="58" name="Node58"                dataType="07" access="rw" default="0x800000D8"   />
+      <CANopenSubObject subIndex="59" name="Node59"                dataType="07" access="rw" default="0x800000D9"   />
+      <CANopenSubObject subIndex="5A" name="Node5A"                dataType="07" access="rw" default="0x800000DA"   />
+      <CANopenSubObject subIndex="5B" name="Node5B"                dataType="07" access="rw" default="0x800000DB"   />
+      <CANopenSubObject subIndex="5C" name="Node5C"                dataType="07" access="rw" default="0x800000DC"   />
+      <CANopenSubObject subIndex="5D" name="Node5D"                dataType="07" access="rw" default="0x800000DD"   />
+      <CANopenSubObject subIndex="5E" name="Node5E"                dataType="07" access="rw" default="0x800000DE"   />
+      <CANopenSubObject subIndex="5F" name="Node5F"                dataType="07" access="rw" default="0x800000DF"   />
+      <CANopenSubObject subIndex="60" name="Node60"                dataType="07" access="rw" default="0x800000E0"   />
+      <CANopenSubObject subIndex="61" name="Node61"                dataType="07" access="rw" default="0x800000E1"   />
+      <CANopenSubObject subIndex="62" name="Node62"                dataType="07" access="rw" default="0x800000E2"   />
+      <CANopenSubObject subIndex="63" name="Node63"                dataType="07" access="rw" default="0x800000E3"   />
+      <CANopenSubObject subIndex="64" name="Node64"                dataType="07" access="rw" default="0x800000E4"   />
+      <CANopenSubObject subIndex="65" name="Node65"                dataType="07" access="rw" default="0x800000E5"   />
+      <CANopenSubObject subIndex="66" name="Node66"                dataType="07" access="rw" default="0x800000E6"   />
+      <CANopenSubObject subIndex="67" name="Node67"                dataType="07" access="rw" default="0x800000E7"   />
+      <CANopenSubObject subIndex="68" name="Node68"                dataType="07" access="rw" default="0x800000E8"   />
+      <CANopenSubObject subIndex="69" name="Node69"                dataType="07" access="rw" default="0x800000E9"   />
+      <CANopenSubObject subIndex="6A" name="Node6A"                dataType="07" access="rw" default="0x800000EA"   />
+      <CANopenSubObject subIndex="6B" name="Node6B"                dataType="07" access="rw" default="0x800000EB"   />
+      <CANopenSubObject subIndex="6C" name="Node6C"                dataType="07" access="rw" default="0x800000EC"   />
+      <CANopenSubObject subIndex="6D" name="Node6D"                dataType="07" access="rw" default="0x800000ED"   />
+      <CANopenSubObject subIndex="6E" name="Node6E"                dataType="07" access="rw" default="0x800000EE"   />
+      <CANopenSubObject subIndex="6F" name="Node6F"                dataType="07" access="rw" default="0x800000EF"   />
+      <CANopenSubObject subIndex="70" name="Node70"                dataType="07" access="rw" default="0x800000F0"   />
+      <CANopenSubObject subIndex="71" name="Node71"                dataType="07" access="rw" default="0x800000F1"   />
+      <CANopenSubObject subIndex="72" name="Node72"                dataType="07" access="rw" default="0x800000F2"   />
+      <CANopenSubObject subIndex="73" name="Node73"                dataType="07" access="rw" default="0x800000F3"   />
+      <CANopenSubObject subIndex="74" name="Node74"                dataType="07" access="rw" default="0x800000F4"   />
+      <CANopenSubObject subIndex="75" name="Node75"                dataType="07" access="rw" default="0x800000F5"   />
+      <CANopenSubObject subIndex="76" name="Node76"                dataType="07" access="rw" default="0x800000F6"   />
+      <CANopenSubObject subIndex="77" name="Node77"                dataType="07" access="rw" default="0x800000F7"   />
+      <CANopenSubObject subIndex="78" name="Node78"                dataType="07" access="rw" default="0x800000F8"   />
+      <CANopenSubObject subIndex="79" name="Node79"                dataType="07" access="rw" default="0x800000F9"   />
+      <CANopenSubObject subIndex="7A" name="Node7A"                dataType="07" access="rw" default="0x800000FA"   />
+      <CANopenSubObject subIndex="7B" name="Node7B"                dataType="07" access="rw" default="0x800000FB"   />
+      <CANopenSubObject subIndex="7C" name="Node7C"                dataType="07" access="rw" default="0x800000FC"   />
+      <CANopenSubObject subIndex="7D" name="Node7D"                dataType="07" access="rw" default="0x800000FD"   />
+      <CANopenSubObject subIndex="7E" name="Node7E"                dataType="07" access="rw" default="0x800000FE"   />
+      <CANopenSubObject subIndex="7F" name="Node7F"                dataType="07" access="rw" default="0x800000FF"   />
+    </CANopenObject>
+  
+          <CANopenObject index="1029" name="errorBehavior">
+              <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x01"         />
+              <CANopenSubObject subIndex="01" name="commError"             dataType="05" access="rw" default="0x00"         />
+      </CANopenObject>
+  
+          <CANopenObject index="1200" name="serverSDOParam1">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x02"         />
+            <CANopenSubObject subIndex="01" name="rxCOBID"               dataType="07" access="ro" default="0x00000640"   />
+            <CANopenSubObject subIndex="02" name="txCOBID"               dataType="07" access="ro" default="0x000005C0"   />
+      </CANopenObject>
+
+          <CANopenObject index="1280" name="clientSDOParam1">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000601"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000581"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000001"   />
+      </CANopenObject>
+
+          <CANopenObject index="1281" name="clientSDOParam2">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000602"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000582"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000002"   />
+      </CANopenObject>
+
+          <CANopenObject index="1282" name="clientSDOParam3">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000603"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000583"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000003"   />
+      </CANopenObject>
+      
+      <CANopenObject index="1283" name="clientSDOParam4">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000604"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000584"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000004"   />
+      </CANopenObject>
+              <CANopenObject index="1284" name="clientSDOParam5">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000605"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000585"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000005"   />
+      </CANopenObject>
+      
+      <CANopenObject index="1285" name="clientSDOParam6">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000606"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000586"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000006"   />
+         </CANopenObject>
+         
+         <CANopenObject index="1286" name="clientSDOParam7">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000607"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000587"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000007"   />
+         </CANopenObject>
+         <CANopenObject index="1287" name="clientSDOParam8">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000608"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000588"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000008"   />
+         </CANopenObject>
+         
+         <CANopenObject index="1288" name="clientSDOParam9">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000609"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000589"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000009"   />
+         </CANopenObject>
+         
+         <CANopenObject index="1289" name="clientSDOParamA">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x0000060A"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x0000058A"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x0000000A"   />
+         </CANopenObject>
+
+         <CANopenObject index="128A" name="clientSDOParamB">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x0000060B"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x0000058B"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x0000000B"   />
+         </CANopenObject>
+
+         <CANopenObject index="128B" name="clientSDOParamC">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x0000060C"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x0000058C"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x0000000C"   />
+         </CANopenObject>
+      
+         <CANopenObject index="128C" name="clientSDOParamD">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000611"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000591"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000011"   />
+         </CANopenObject>
+         
+         <CANopenObject index="128D" name="clientSDOParamE">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000612"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000592"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000012"   />
+         </CANopenObject>
+         
+         <CANopenObject index="128E" name="clientSDOParamF">
+            <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="txCOBID"               dataType="07" access="ro" default="0x00000610"   />
+            <CANopenSubObject subIndex="02" name="rxCOBID"               dataType="07" access="ro" default="0x00000590"   />
+            <CANopenSubObject subIndex="03" name="serverNodeId"          dataType="05" access="ro" default="0x00000010"   />
+         </CANopenObject>
+         
+<!-- RPDO config -->   
+        <CANopenObject index="1400" name="RPDOParam1" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x0185"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x5388"       />
+    </CANopenObject>
+    <CANopenObject index="1600" name="RPDOMapping1" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x02"         />
+            <CANopenSubObject subIndex="01" name="steeringRx"        dataType="07" access="rw" default="0x20100308"   />
+              <CANopenSubObject subIndex="02" name="steeringRxStall"   dataType="07" access="rw" default="0x20100C08"   />
+    </CANopenObject>
+    
+         <CANopenObject index="1401" name="RPDOParam2" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x0201"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x5388"       />
+    </CANopenObject>
+    <CANopenObject index="1601" name="RPDOMapping2" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x02"         />
+            <CANopenSubObject subIndex="01" name="mapEntry1"         dataType="07" access="rw" default="0x20100720"   />
+            <CANopenSubObject subIndex="02" name="mapEntry1"         dataType="07" access="rw" default="0x20100820"   />
+    </CANopenObject>
+          
+          <CANopenObject index="1402" name="RPDOParam3" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x0281"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x5388"       />
+    </CANopenObject>
+    <CANopenObject index="1602" name="RPDOMapping3" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x02"         />
+            <CANopenSubObject subIndex="01" name="mapEntry1"         dataType="07" access="rw" default="0x20100420"   />
+            <CANopenSubObject subIndex="02" name="mapEntry1"         dataType="07" access="rw" default="0x20100520"   />
+    </CANopenObject>
+       
+          <CANopenObject index="1403" name="RPDOParam4" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x0301"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x5388"       />
+    </CANopenObject>
+    <CANopenObject index="1603" name="RPDOMapping4" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x02"         />
+            <CANopenSubObject subIndex="01" name="mapEntry1"         dataType="07" access="rw" default="0x20100620"   />
+            <CANopenSubObject subIndex="02" name="mapEntry1"         dataType="07" access="rw" default="0x20100920"   />
+    </CANopenObject>
+       
+          <CANopenObject index="1404" name="RPDOParam5" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x01a1"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x5388"       />
+    </CANopenObject>
+    <CANopenObject index="1604" name="RPDOMapping5" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x01"         />
+            <CANopenSubObject subIndex="01" name="mapEntry1"         dataType="07" access="rw" default="0x20100A20"   />
+    </CANopenObject>   
+
+      <CANopenObject index="1405" name="RPDOParam6" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x0440"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x0000"       />
+    </CANopenObject>
+    <CANopenObject index="1605" name="RPDOMapping6" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x00"         />
+    </CANopenObject>
+   
+      <CANopenObject index="1406" name="RPDOParam7" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x018C"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x0000"       />
+    </CANopenObject>
+    <CANopenObject index="1606" name="RPDOMapping7" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x04"         />
+            <CANopenSubObject subIndex="01" name="monitorState"      dataType="07" access="rw" default="0x20100D08"   />
+            <CANopenSubObject subIndex="02" name="batteryLevel"      dataType="07" access="rw" default="0x20100E08"   />
+            <CANopenSubObject subIndex="03" name="batteryVoltage"    dataType="07" access="rw" default="0x20100F10"   />
+            <CANopenSubObject subIndex="04" name="iShunt"            dataType="07" access="rw" default="0x20101020"   />
+    </CANopenObject>
+    
+      <CANopenObject index="1407" name="RPDOParam8" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x0188"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x07D0"       />
+    </CANopenObject>
+    <CANopenObject index="1607" name="RPDOMapping8" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="BLXSpeed"          dataType="07" access="rw" default="0x20101110"   />
+            <CANopenSubObject subIndex="02" name="dummy"             dataType="07" access="rw" default="0x20101728"   />
+            <CANopenSubObject subIndex="03" name="BLXCurrent"        dataType="07" access="rw" default="0x20101408"   />
+    </CANopenObject>
+
+      <CANopenObject index="1408" name="RPDOParam9" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x0189"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x07D0"       />
+    </CANopenObject>
+    <CANopenObject index="1608" name="RPDOMapping9" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="BLXSpeed"          dataType="07" access="rw" default="0x20101210"   />
+            <CANopenSubObject subIndex="02" name="dummy"             dataType="07" access="rw" default="0x20101728"   />
+            <CANopenSubObject subIndex="03" name="BLXCurrent"        dataType="07" access="rw" default="0x20101508"   />
+    </CANopenObject>
+
+      <CANopenObject index="1409" name="RPDOParamA" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x018A"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0xFF"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x07D0"       />
+    </CANopenObject>
+    <CANopenObject index="1609" name="RPDOMappingA" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x03"         />
+            <CANopenSubObject subIndex="01" name="BLXSpeed"          dataType="07" access="rw" default="0x20101310"   />
+            <CANopenSubObject subIndex="02" name="dummy"             dataType="07" access="rw" default="0x20101728"   />
+            <CANopenSubObject subIndex="03" name="BLXCurrent"        dataType="07" access="rw" default="0x20101608"   />
+    </CANopenObject>
+
+<!-- TPDO config -->  
+      <CANopenObject index="1800" name="TPDOParam1" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfParam"          dataType="05" access="rw" default="0x05"         />
+            <CANopenSubObject subIndex="01" name="cobId"             dataType="07" access="rw" default="0x01c0"       />
+            <CANopenSubObject subIndex="02" name="transType"         dataType="05" access="rw" default="0x01"         />
+            <CANopenSubObject subIndex="03" name="inhibitTime"       dataType="06" access="rw" default="0x0000"       />
+            <CANopenSubObject subIndex="04" name="reserved"          dataType="05" access="rw" default="0x00"         />
+            <CANopenSubObject subIndex="05" name="eventTimer"        dataType="06" access="rw" default="0x0000"       />
+      </CANopenObject>
+      <CANopenObject index="1A00" name="TPDOMapping1" dataType="0007">
+            <CANopenSubObject subIndex="00" name="nOfMapping"        dataType="05" access="rw" default="0x04"         />
+            <CANopenSubObject subIndex="01" name="speed"             dataType="07" access="rw" default="0x20100108"   /> 
+            <CANopenSubObject subIndex="02" name="steering"          dataType="07" access="rw" default="0x20100208"   />
+            <CANopenSubObject subIndex="03" name="trommelSpeed"      dataType="07" access="rw" default="0x20100B08"   />
+            <CANopenSubObject subIndex="04" name="towerSpeed"        dataType="07" access="rw" default="0x20101708"   />
+      </CANopenObject>
+   
+    <CANopenObject index="1F80" name="NMTStartup" dataType="0007">
+      <CANopenSubObject subIndex="00" name="NMTStartup"        dataType="07" access="rw" default="0x00000013"   />
+    </CANopenObject>
+    
+    <CANopenObject index="1F81" name="slaveAssignment" dataType="0007">
+      <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x7F"     />
+      <CANopenSubObject subIndex="01" name="MagnetLineal"          dataType="07" access="rw" default="0x0001000D"   />
+      <CANopenSubObject subIndex="02" name="DriveRight"            dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="03" name="DriveLeft"             dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="04" name="Steering"              dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="05" name="SteeringWheel"         dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="06" name="counter"               dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="07" name="counter"               dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="08" name="BLXRight"              dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="09" name="BLXLeft"               dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="0A" name="BLXTrommel"            dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="0B" name="SteeringWheel"         dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="0C" name="ChargeMonitor"         dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="0D" name="NodeD"                 dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="0E" name="NodeE"                 dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="0F" name="NodeF"                 dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="10" name="KFTowerPos"            dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="11" name="KF1"                   dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="12" name="KF2"                   dataType="07" access="rw" default="0x00010005"   />
+      <CANopenSubObject subIndex="13" name="Node13"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="14" name="Node14"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="15" name="Node15"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="16" name="Node16"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="17" name="Node17"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="18" name="Node18"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="19" name="Node19"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="1A" name="Node1A"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="1B" name="Node1B"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="1C" name="Node1C"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="1D" name="Node1D"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="1E" name="Node1E"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="1F" name="Node1F"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="20" name="Node20"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="21" name="Node21"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="22" name="Node22"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="23" name="Node23"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="24" name="Node24"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="25" name="Node25"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="26" name="Node26"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="27" name="Node27"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="28" name="Node28"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="29" name="Node29"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="2A" name="Node2A"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="2B" name="Node2B"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="2C" name="Node2C"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="2D" name="Node2D"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="2E" name="Node2E"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="2F" name="Node2F"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="30" name="Node30"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="31" name="Node31"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="32" name="Node32"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="33" name="Node33"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="34" name="Node34"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="35" name="Node35"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="36" name="Node36"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="37" name="Node37"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="38" name="Node38"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="39" name="Node39"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="3A" name="Node3A"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="3B" name="Node3B"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="3C" name="Node3C"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="3D" name="Node3D"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="3E" name="Node3E"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="3F" name="Node3F"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="40" name="Node40"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="41" name="Node41"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="42" name="Node42"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="43" name="Node43"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="44" name="Node44"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="45" name="Node45"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="46" name="Node46"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="47" name="Node47"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="48" name="Node48"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="49" name="Node49"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="4A" name="Node4A"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="4B" name="Node4B"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="4C" name="Node4C"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="4D" name="Node4D"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="4E" name="Node4E"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="4F" name="Node4F"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="50" name="Node50"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="51" name="Node51"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="52" name="Node52"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="53" name="Node53"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="54" name="Node54"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="55" name="Node55"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="56" name="Node56"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="57" name="Node57"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="58" name="Node58"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="59" name="Node59"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="5A" name="Node5A"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="5B" name="Node5B"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="5C" name="Node5C"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="5D" name="Node5D"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="5E" name="Node5E"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="5F" name="Node5F"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="60" name="Node60"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="61" name="Node61"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="62" name="Node62"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="63" name="Node63"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="64" name="Node64"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="65" name="Node65"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="66" name="Node66"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="67" name="Node67"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="68" name="Node68"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="69" name="Node69"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="6A" name="Node6A"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="6B" name="Node6B"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="6C" name="Node6C"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="6D" name="Node6D"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="6E" name="Node6E"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="6F" name="Node6F"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="70" name="Node70"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="71" name="Node71"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="72" name="Node72"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="73" name="Node73"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="74" name="Node74"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="75" name="Node75"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="76" name="Node76"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="77" name="Node77"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="78" name="Node78"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="79" name="Node79"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="7A" name="Node7A"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="7B" name="Node7B"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="7C" name="Node7C"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="7D" name="Node7D"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="7E" name="Node7E"                dataType="07" access="rw" default="0x0000"   />
+      <CANopenSubObject subIndex="7F" name="Node7F"                dataType="07" access="rw" default="0x0000"   />
+    </CANopenObject>
+        
+    <CANopenObject index="1F82" name="RequestNMT" dataType="0007">
+      <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x80"     />
+      <CANopenSubObject subIndex="01" name="Node1"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="02" name="Node2"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="03" name="Node3"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="04" name="Node4"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="05" name="Node5"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="06" name="Node6"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="07" name="Node7"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="08" name="Node8"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="09" name="Node9"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="0A" name="NodeA"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="0B" name="NodeB"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="0C" name="NodeC"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="0D" name="NodeD"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="0E" name="NodeE"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="0F" name="NodeF"                 dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="10" name="Node10"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="11" name="Node11"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="12" name="Node12"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="13" name="Node13"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="14" name="Node14"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="15" name="Node15"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="16" name="Node16"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="17" name="Node17"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="18" name="Node18"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="19" name="Node19"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="1A" name="Node1A"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="1B" name="Node1B"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="1C" name="Node1C"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="1D" name="Node1D"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="1E" name="Node1E"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="1F" name="Node1F"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="20" name="Node20"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="21" name="Node21"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="22" name="Node22"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="23" name="Node23"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="24" name="Node24"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="25" name="Node25"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="26" name="Node26"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="27" name="Node27"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="28" name="Node28"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="29" name="Node29"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="2A" name="Node2A"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="2B" name="Node2B"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="2C" name="Node2C"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="2D" name="Node2D"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="2E" name="Node2E"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="2F" name="Node2F"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="30" name="Node30"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="31" name="Node31"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="32" name="Node32"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="33" name="Node33"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="34" name="Node34"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="35" name="Node35"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="36" name="Node36"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="37" name="Node37"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="38" name="Node38"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="39" name="Node39"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="3A" name="Node3A"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="3B" name="Node3B"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="3C" name="Node3C"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="3D" name="Node3D"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="3E" name="Node3E"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="3F" name="Node3F"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="40" name="Node40"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="41" name="Node41"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="42" name="Node42"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="43" name="Node43"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="44" name="Node44"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="45" name="Node45"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="46" name="Node46"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="47" name="Node47"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="48" name="Node48"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="49" name="Node49"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="4A" name="Node4A"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="4B" name="Node4B"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="4C" name="Node4C"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="4D" name="Node4D"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="4E" name="Node4E"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="4F" name="Node4F"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="50" name="Node50"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="51" name="Node51"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="52" name="Node52"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="53" name="Node53"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="54" name="Node54"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="55" name="Node55"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="56" name="Node56"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="57" name="Node57"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="58" name="Node58"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="59" name="Node59"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="5A" name="Node5A"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="5B" name="Node5B"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="5C" name="Node5C"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="5D" name="Node5D"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="5E" name="Node5E"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="5F" name="Node5F"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="60" name="Node60"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="61" name="Node61"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="62" name="Node62"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="63" name="Node63"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="64" name="Node64"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="65" name="Node65"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="66" name="Node66"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="67" name="Node67"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="68" name="Node68"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="69" name="Node69"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="6A" name="Node6A"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="6B" name="Node6B"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="6C" name="Node6C"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="6D" name="Node6D"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="6E" name="Node6E"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="6F" name="Node6F"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="70" name="Node70"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="71" name="Node71"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="72" name="Node72"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="73" name="Node73"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="74" name="Node74"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="75" name="Node75"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="76" name="Node76"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="77" name="Node77"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="78" name="Node78"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="79" name="Node79"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="7A" name="Node7A"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="7B" name="Node7B"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="7C" name="Node7C"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="7D" name="Node7D"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="7E" name="Node7E"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="7F" name="Node7F"                dataType="05" access="rw" default="0x00"     />
+      <CANopenSubObject subIndex="80" name="Node80"                dataType="05" access="wo" default="0x00"     />
+    </CANopenObject>
+    
+    <CANopenObject index="1F84" name="slaveAssignment" dataType="0007">
+      <CANopenSubObject subIndex="00" name="nOfEntries"            dataType="05" access="ro" default="0x7F"     />
+      <CANopenSubObject subIndex="01" name="Node1"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="02" name="Node2"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="03" name="Node3"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="04" name="Node4"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="05" name="Node5"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="06" name="Node6"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="07" name="Node7"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="08" name="Node8"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="09" name="Node9"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="0A" name="NodeA"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="0B" name="NodeB"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="0C" name="NodeC"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="0D" name="NodeD"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="0E" name="NodeE"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="0F" name="NodeF"                 dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="10" name="Node10"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="11" name="Node11"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="12" name="Node12"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="13" name="Node13"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="14" name="Node14"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="15" name="Node15"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="16" name="Node16"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="17" name="Node17"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="18" name="Node18"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="19" name="Node19"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="1A" name="Node1A"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="1B" name="Node1B"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="1C" name="Node1C"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="1D" name="Node1D"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="1E" name="Node1E"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="1F" name="Node1F"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="20" name="Node20"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="21" name="Node21"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="22" name="Node22"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="23" name="Node23"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="24" name="Node24"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="25" name="Node25"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="26" name="Node26"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="27" name="Node27"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="28" name="Node28"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="29" name="Node29"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="2A" name="Node2A"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="2B" name="Node2B"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="2C" name="Node2C"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="2D" name="Node2D"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="2E" name="Node2E"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="2F" name="Node2F"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="30" name="Node30"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="31" name="Node31"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="32" name="Node32"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="33" name="Node33"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="34" name="Node34"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="35" name="Node35"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="36" name="Node36"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="37" name="Node37"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="38" name="Node38"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="39" name="Node39"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="3A" name="Node3A"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="3B" name="Node3B"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="3C" name="Node3C"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="3D" name="Node3D"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="3E" name="Node3E"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="3F" name="Node3F"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="40" name="Node40"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="41" name="Node41"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="42" name="Node42"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="43" name="Node43"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="44" name="Node44"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="45" name="Node45"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="46" name="Node46"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="47" name="Node47"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="48" name="Node48"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="49" name="Node49"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="4A" name="Node4A"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="4B" name="Node4B"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="4C" name="Node4C"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="4D" name="Node4D"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="4E" name="Node4E"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="4F" name="Node4F"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="50" name="Node50"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="51" name="Node51"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="52" name="Node52"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="53" name="Node53"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="54" name="Node54"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="55" name="Node55"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="56" name="Node56"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="57" name="Node57"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="58" name="Node58"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="59" name="Node59"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="5A" name="Node5A"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="5B" name="Node5B"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="5C" name="Node5C"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="5D" name="Node5D"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="5E" name="Node5E"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="5F" name="Node5F"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="60" name="Node60"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="61" name="Node61"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="62" name="Node62"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="63" name="Node63"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="64" name="Node64"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="65" name="Node65"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="66" name="Node66"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="67" name="Node67"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="68" name="Node68"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="69" name="Node69"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="6A" name="Node6A"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="6B" name="Node6B"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="6C" name="Node6C"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="6D" name="Node6D"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="6E" name="Node6E"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="6F" name="Node6F"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="70" name="Node70"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="71" name="Node71"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="72" name="Node72"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="73" name="Node73"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="74" name="Node74"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="75" name="Node75"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="76" name="Node76"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="77" name="Node77"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="78" name="Node78"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="79" name="Node79"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="7A" name="Node7A"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="7B" name="Node7B"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="7C" name="Node7C"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="7D" name="Node7D"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="7E" name="Node7E"                dataType="07" access="ro" default="0x0000"   />
+      <CANopenSubObject subIndex="7F" name="Node7F"                dataType="07" access="ro" default="0x0000"   />
+    </CANopenObject>
+    
+      <CANopenObject index="2010" name="PDO_Variable_Manual" dataType="0007">
+        <CANopenSubObject subIndex="00" name="nOfEntries"        dataType="07" access="ro" default="0x1E"   />
+        <CANopenSubObject subIndex="01" name="speed"             dataType="02" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="02" name="steering"          dataType="02" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="03" name="steeringRx"        dataType="02" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="04" name="cruiseCoordX"      dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="05" name="cruiseCoordY"      dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="06" name="cruiseYawDeg"      dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="07" name="cruiseYawSlipOdoRadFilt" dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="08" name="cruise_omega_realDeg" dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="09" name="l3dg20Rate"        dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="0A" name="l3dg20Angle"       dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="0B" name="trommelSpeed"      dataType="02" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="0C" name="steeringRxStall"   dataType="05" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="0D" name="monitorState"      dataType="05" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="0E" name="batteryLevel"      dataType="05" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="0F" name="batteryVoltage"    dataType="06" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="10" name="iShunt"            dataType="04" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="11" name="BLX1Speed"         dataType="03" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="12" name="BLX2Speed"         dataType="03" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="13" name="BLX3Speed"         dataType="03" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="14" name="BLX1Current"       dataType="06" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="15" name="BLX2Current"       dataType="06" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="16" name="BLX3Current"       dataType="06" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="17" name="towerSpeed"        dataType="02" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="18" name="SetCoordX"         dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="19" name="SetCoordY"         dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="1A" name="SetYawDeg"         dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="1B" name="break"             dataType="05" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="1C" name="stopFlags"         dataType="05" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="1D" name="driven"            dataType="08" access="rw" default="0x00"   />
+        <CANopenSubObject subIndex="1E" name="ConFeedImpulses"   dataType="07" access="rw" default="0x00"   />
+     </CANopenObject>
+     
+      <CANopenObject index="4000" name="butlerCtrl">
+      <CANopenSubObject subIndex="00" name="nOfEntries"          dataType="07" access="ro" default="0x12"         />
+      <CANopenSubObject subIndex="01" name="driveRequest"        dataType="06" access="rw" default="0x0000"/>
+      <CANopenSubObject subIndex="02" name="butlerState"         dataType="06" access="rw" default="0x0000"/>
+      <CANopenSubObject subIndex="03" name="abortRequest"        dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="04" name="manualRequest"       dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="05" name="pauseRequest"        dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="06" name="parkRequest"         dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="07" name="teachTrackRequest"   dataType="06" access="rw" default="0x0000"/>
+      <CANopenSubObject subIndex="08" name="conFeedRequest"      dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="09" name="teachMagnetRequest"  dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="0A" name="tmExistRequest"      dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="0B" name="driveLength"         dataType="08" access="rw" default="0x0000"/>
+      <CANopenSubObject subIndex="0C" name="calibRequest"        dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="0D" name="fillRequest"         dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="0E" name="stopStateRequest"    dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="0F" name="calibProgress"       dataType="05" access="rw" default="0x00"/>
+      <CANopenSubObject subIndex="10" name="trackId"             dataType="06" access="rw" default="0x0000"/>
+      <CANopenSubObject subIndex="11" name="teachBayRequest"     dataType="06" access="rw" default="0x0000"/>
+      <CANopenSubObject subIndex="12" name="teachBayCtrl"        dataType="05" access="rw" default="0x00"/>
+  </CANopenObject>
+  
+  <CANopenObject index="4001" name="butlerObj">
+       	<CANopenSubObject subIndex="00" name="nOfEntries"          dataType="07" access="ro" default="0x02"         />
+       	<CANopenSubObject subIndex="01" name="driveStartPoint"     dataType="06" access="rw" default="0x0000"/>
+       	<CANopenSubObject subIndex="02" name="driveLength"         dataType="08" access="rw" default="0x0000"/>
+  </CANopenObject>
+  
+</CANopenObjectList>

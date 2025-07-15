@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Entry>
+	<Project id="100">steeringWheel</Project>
+	<Date>21.12.2017 09:15:55</Date>
+	<Version>1.02.012</Version>
+	<Author>Andreas Kaiselgruber</Author>
+	<Hardware>steeringWheel</Hardware>
+	<ChangeLog>
+		<Change>Bug 5164 - SW anpassen für steeringwheel HW v2</Change>
+	</ChangeLog>
+	<Setting id="binary">
+		<Baudrate>125</Baudrate>
+		<CRIS>11</CRIS>
+		<NNB>11</NNB>
+		<BinaryPath>Butler_Gold/steeringWheel</BinaryPath>
+	</Setting>
+</Entry>

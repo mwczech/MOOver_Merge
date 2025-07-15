@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CANopenObjectList>
+	<CANopenObject index="1000" name="deviceType">
+    	<CANopenSubObject subIndex="00" name="deviceProfile" dataType="07" access="ro" default="0x6001051" />
+	</CANopenObject>
+    <CANopenObject index="0x2100" name="Application type" >
+    	<CANopenSubObject subIndex="00" name="nOfEntries"      dataType="05" access="ro" default="0x01"   />
+    	<CANopenSubObject subIndex="14" name="Application type" dataType="05" access="rw" default="0x00"   />
+    </CANopenObject>  
+</CANopenObjectList>

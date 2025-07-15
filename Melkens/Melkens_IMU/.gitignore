@@ -1,0 +1,7 @@
+# Exclude folders
+Debug/
+Release/
+*.launch
+.settings/
+*.bak
+Melkens_Lib

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<CANopenObjectList>
+	        <CANopenObject index="1000" name="deviceType">
+	        	<CANopenSubObject subIndex="00" name="deviceProfile"         dataType="07" access="ro" default="0x0000033"   />
+   		</CANopenObject>
+	
+	        <CANopenObject index="1001" name="errorRegister">
+	        	<CANopenSubObject subIndex="00" name="errorRegister"         dataType="05" access="ro" default="0x00"         />
+   		</CANopenObject>
+		
+	        <CANopenObject index="1002" name="manufacturerStatus">
+	        	<CANopenSubObject subIndex="00" name="manufacturerStatus"    dataType="05" access="ro" default="0x00"         />
+   		</CANopenObject>
+		
+	        <CANopenObject index="1003" name="errorField">
+	        	<CANopenSubObject subIndex="00" name="nOfErrors"             dataType="05" access="rw" default="0x00"         />
+   		</CANopenObject>
+
+		<CANopenObject index="100A" name="swVersion">
+	        	<CANopenSubObject subIndex="00" name="swVersion"             dataType="09" access="ro" default="00.00.000"   />
+   		</CANopenObject>
+		
+		<CANopenObject index="1F80" name="NMTStartup" dataType="0007">
+			<CANopenSubObject subIndex="00" name="NMTStartup"        dataType="07" access="rw" default="0x00000000"   />
+		</CANopenObject>
+	   
+   	   <CANopenObject index="4000" name="butler">
+   	        <CANopenSubObject subIndex="00" name="nOfEntries"      dataType="05" access="ro" default="0x06"/>
+   	        <CANopenSubObject subIndex="01" name="ML"             dataType="0027" default="0x00000001"/>
+   	        <CANopenSubObject subIndex="02" name="MON"            dataType="0027" default="0x0000000C"/>
+   	        <CANopenSubObject subIndex="03" name="CHRG"           dataType="0027" default="0x0000000D"/>
+   	        <CANopenSubObject subIndex="04" name="KFTower"        dataType="0027" default="0x00000010"/>
+   	        <CANopenSubObject subIndex="05" name="KF1"            dataType="0027" default="0x00000011"/>
+   	        <CANopenSubObject subIndex="06" name="KF2"            dataType="0027" default="0x00000012"/>
+       </CANopenObject>
+</CANopenObjectList>
+

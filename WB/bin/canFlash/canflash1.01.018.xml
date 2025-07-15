@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Entry>
+	<Project id="107">canflash</Project>
+	<Date>15.06.2020 10:48:37</Date>
+	<Version>1.01.018</Version>
+	<Author>Marian Oklapek</Author>
+	<ChangeLog>
+		<Change>Bug ---- - change nodeId</Change>
+	</ChangeLog>
+	<Setting id="binary">
+		<Baudrate>125</Baudrate>
+		<CRIS>11</CRIS>
+		<NNB>1</NNB>
+		<BinaryPath>QT/CanFlash</BinaryPath>
+	</Setting>
+</Entry>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Entry>
+	<Project id="98">magnetLineal</Project>
+	<Date>16.09.2022 08:08:00</Date>
+	<Version>2.01.031</Version>
+	<State>beta</State>
+	<Author>Andreas Kaiselgruber</Author>
+	<Description>ML für Butler Gold</Description>
+	<Changelog>
+		<Change>issue 460: ML: Kraftfutter Schwenkantrieb dreht bei Buchtende zusp?t zur?ck</Change>
+		<Change>issue 469: ML: magnetWach funktioniert nicht mehr</Change>
+	</Changelog>
+	<Setting id="binary">
+		<Baudrate>125</Baudrate>
+		<NNB>1</NNB>
+		<CRIS>11</CRIS>
+		<BinaryPath>Butler_Gold/magnetLineal</BinaryPath>
+	</Setting>
+</Entry>
