@@ -1,37 +1,47 @@
+# 🤖 MOOver MELKENS Web Simulator
 
-# MOOver_Merge – Integracja MELKENS + WB
+A comprehensive web-based simulator for the MOOver MELKENS autonomous robot with Hardware-in-the-Loop (HIL) integration capabilities.
 
-## Struktura repozytorium
-MOOver_Merge/
-├── Melkens/ # Kod źródłowy robota MELKENS
-├── WB/ # Kod źródłowy oraz system firmware Wasserbauer
-└── README.md # Ten plik – opis projektu
+## 🚀 Quick Deploy to Railway.app
 
-## Cel projektu
-Celem repozytorium jest pełna integracja i refaktoryzacja rozwiązań nawigacyjnych robota WB (Wasserbauer) z platformą sprzętową MOOver (MELKENS). Chcemy:
-- Uruchomić oprogramowanie WB na naszym hardware,
-- Zweryfikować, które moduły da się przenieść „1:1”, a które wymagają adaptacji,
-- Zbudować symulator i środowisko testowe,
-- Opracować finalną wersję software pod własną marką.
+1. **Push this project to GitHub**
+2. **Connect to Railway**: Go to [railway.app](https://railway.app) → New Project → Deploy from GitHub  
+3. **Set Root Directory**: In Railway Settings → Root Directory → `web-simulator/`
+4. **Deploy**: Railway will automatically build and deploy your application
 
-## Plan działania / Roadmapa
-1. **Porównanie hardware** – mapping płytki/pinów/MAGNETLINEAL vs. MELKENS
-2. **Analiza kompatybilności kodu** – refaktoryzacja, mocki, porty na nasze MCU
-3. **Stworzenie symulatora** – wizualizacja trasy, błędów, logów
-4. **Integracja CAN/komunikacja** – testy z naszą magistralą i silnikami
-5. **Testy na robocie** – najpierw basic drive, potem cała automatyka
-6. **Refaktor, czyszczenie kodu, wdrożenie docelowe**
-7. **Wdrożenie u klienta**
+Your app will be available at: `https://web-production-xxxx.up.railway.app`
 
-## Status
-- [x] Zgrany kod MELKENS oraz WB w jednym repo
-- [ ] Stworzony plan działania (README)
-- [ ] Analiza sprzętu
-- [ ] Integracja software
-- [ ] Testy symulatora
-- [ ] Testy na robocie
+## ✨ Features
 
-## Kontakt
-Prowadzący integrację: Michał Czech / Melkens Sp. z o.o.
+- 🕹️ **Real-time Robot Control**: WebSocket joystick for instant movement
+- 📊 **Live Monitoring**: Motor speeds, battery, current consumption, errors  
+- 🗺️ **Route Management**: Autonomous navigation with routes A-K
+- 🧲 **Magnetic Sensor**: Visual 16-bit magnetic field sensor array
+- 🔧 **HIL Integration**: Connect real ESP32/PMB hardware for testing
+- 📡 **OTA Firmware Updates**: Upload .bin/.hex files via drag-and-drop
+- ⚙️ **Configuration Management**: WiFi/MQTT settings upload
+- 📱 **Responsive Design**: Beautiful mobile-friendly interface
+
+## 🐛 Troubleshooting
+
+**❌ "Application failed to respond"**
+- Check Root Directory = "web-simulator/"
+- Verify health check /api/health returns 200  
+- Ensure server listens on process.env.PORT
+
+**❌ "Build failed"**  
+- Ensure all package.json files exist
+- Check Dockerfile syntax
+- Verify frontend builds successfully
+
+**❌ "WebSocket connection failed"**
+- Check CORS allows Railway domain
+- Verify Socket.IO production configuration
+- Ensure PORT environment variable usage
 
 ---
+
+**🏢 Melkens Sp. z o.o.**  
+**📧 Contact**: Michał Czech  
+**🔗 Project**: MOOver MELKENS Integration  
+**⚡ Version**: 1.0.0
