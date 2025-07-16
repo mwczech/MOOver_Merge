@@ -1,0 +1,87 @@
+{
+  "generated_at": "2025-07-16T12:09:46.000483",
+  "total_tests": 3,
+  "summary": {
+    "tests_passed": 3,
+    "tests_failed": 0,
+    "faults_detected": 0,
+    "recoveries_achieved": 0,
+    "avg_completion_rate": 99.96888888888888,
+    "avg_detection_time": NaN
+  },
+  "detailed_results": [
+    {
+      "scenario_id": "basic_acc_stuck",
+      "start_time": "2025-07-16 12:06:28.564699",
+      "end_time": "2025-07-16 12:07:29.270338",
+      "route_completed": true,
+      "completion_percentage": 99.96666666666667,
+      "fault_detected": false,
+      "detection_time": null,
+      "recovery_achieved": "False",
+      "recovery_time": null,
+      "navigation_errors": [],
+      "performance_metrics": {
+        "route_completion_percentage": 99.96666666666667,
+        "total_distance_traveled": 532.6936431562314,
+        "navigation_error_count": 0,
+        "fault_detection_count": 0,
+        "test_duration": 60.705958127975464,
+        "avg_velocity": 8.881187781864481,
+        "velocity_std": 4.619239587513195,
+        "navigation_stability_score": 0.17796002189017748
+      },
+      "raw_data_file": "logs/scenario_test_basic_acc_stuck_1752667588.json"
+    },
+    {
+      "scenario_id": "high_gyro_noise",
+      "start_time": "2025-07-16 12:07:29.321210",
+      "end_time": "2025-07-16 12:08:30.073880",
+      "route_completed": true,
+      "completion_percentage": 99.96666666666667,
+      "fault_detected": false,
+      "detection_time": null,
+      "recovery_achieved": "False",
+      "recovery_time": null,
+      "navigation_errors": [],
+      "performance_metrics": {
+        "route_completion_percentage": 99.96666666666667,
+        "total_distance_traveled": 531.8581223087549,
+        "navigation_error_count": 0,
+        "fault_detection_count": 0,
+        "test_duration": 60.75422215461731,
+        "avg_velocity": 8.867257791076295,
+        "velocity_std": 4.623510543380475,
+        "navigation_stability_score": 0.1778248644304786
+      },
+      "raw_data_file": "logs/scenario_test_high_gyro_noise_1752667649.json"
+    },
+    {
+      "scenario_id": "packet_loss_critical",
+      "start_time": "2025-07-16 12:08:30.124560",
+      "end_time": "2025-07-16 12:09:45.949060",
+      "route_completed": true,
+      "completion_percentage": 99.97333333333333,
+      "fault_detected": false,
+      "detection_time": null,
+      "recovery_achieved": "False",
+      "recovery_time": null,
+      "navigation_errors": [],
+      "performance_metrics": {
+        "route_completion_percentage": 99.97333333333333,
+        "total_distance_traveled": 672.5631588328088,
+        "navigation_error_count": 0,
+        "fault_detection_count": 0,
+        "test_duration": 75.82608485221863,
+        "avg_velocity": 8.969900757972914,
+        "velocity_std": 4.594936106093198,
+        "navigation_stability_score": 0.1787330509299193
+      },
+      "raw_data_file": "logs/scenario_test_packet_loss_critical_1752667710.json"
+    }
+  ],
+  "recommendations": [
+    "Fault detection capabilities need improvement - implement better anomaly detection",
+    "System recovery mechanisms need enhancement"
+  ]
+}

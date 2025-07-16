@@ -1,0 +1,4 @@
+scenario_id,start_time,end_time,route_completed,completion_percentage,fault_detected,detection_time,recovery_achieved,recovery_time,navigation_error_count
+basic_acc_stuck,2025-07-16T12:06:28.564699,2025-07-16T12:07:29.270338,True,99.96666666666667,False,,False,,0
+high_gyro_noise,2025-07-16T12:07:29.321210,2025-07-16T12:08:30.073880,True,99.96666666666667,False,,False,,0
+packet_loss_critical,2025-07-16T12:08:30.124560,2025-07-16T12:09:45.949060,True,99.97333333333333,False,,False,,0

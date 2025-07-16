@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MELKENS Robot HIL Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <h1>MELKENS HIL Simulator</h1>
+                </div>
+                <div class="header-status">
+                    <div class="status-item">
+                        <span class="status-label">IMU:</span>
+                        <span id="imu-status" class="status-value disconnected">Disconnected</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Mode:</span>
+                        <span id="current-mode" class="status-value">Simulated</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Data Rate:</span>
+                        <span id="data-rate" class="status-value">0 Hz</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Panel -->
+            <aside class="left-panel">
+                <!-- System Configuration -->
+                <div class="panel-section">
+                    <h3><i class="fas fa-cogs"></i> System Configuration</h3>
+                    <div class="config-group">
+                        <label for="imu-mode">IMU Mode:</label>
+                        <select id="imu-mode">
+                            <option value="simulated">Simulated IMU</option>
+                            <option value="hardware">Real Hardware</option>
+                        </select>
+                    </div>
+                    <div class="config-group">
+                        <label for="serial-port">Serial Port:</label>
+                        <input type="text" id="serial-port" value="/dev/ttyUSB0" placeholder="e.g., /dev/ttyUSB0, COM3">
+                    </div>
+                    <div class="config-group">
+                        <label for="baud-rate">Baud Rate:</label>
+                        <select id="baud-rate">
+                            <option value="9600">9600</option>
+                            <option value="57600">57600</option>
+                            <option value="115200" selected>115200</option>
+                            <option value="230400">230400</option>
+                        </select>
+                    </div>
+                    <div class="config-group">
+                        <label for="update-rate">Update Rate (ms):</label>
+                        <input type="number" id="update-rate" value="50" min="10" max="1000">
+                    </div>
+                    <button id="apply-config" class="btn btn-primary">
+                        <i class="fas fa-check"></i> Apply Configuration
+                    </button>
+                </div>
+
+                <!-- Robot Control -->
+                <div class="panel-section">
+                    <h3><i class="fas fa-gamepad"></i> Robot Control</h3>
+                    <div class="config-group">
+                        <label for="route-select">Route:</label>
+                        <select id="route-select">
+                            <option value="">Select Route</option>
+                            <option value="A">Route A - Rectangle</option>
+                            <option value="B">Route B - L-Shape</option>
+                            <option value="C">Route C - Complex</option>
+                            <option value="D">Route D - Circle</option>
+                        </select>
+                    </div>
+                    <div class="button-group">
+                        <button id="start-route" class="btn btn-success">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                        <button id="pause-route" class="btn btn-warning">
+                            <i class="fas fa-pause"></i> Pause
+                        </button>
+                        <button id="stop-route" class="btn btn-danger">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                    <div class="route-progress">
+                        <div class="progress-bar">
+                            <div id="route-progress" class="progress-fill"></div>
+                        </div>
+                        <span id="route-step-info">Step 0 of 0</span>
+                    </div>
+                </div>
+
+                <!-- Fault Injection -->
+                <div class="panel-section">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Fault Injection</h3>
+                    <div class="config-group">
+                        <label>
+                            <input type="checkbox" id="fault-enable"> Enable Fault Injection
+                        </label>
+                    </div>
+                    <div class="config-group">
+                        <label for="fault-type">Fault Type:</label>
+                        <select id="fault-type">
+                            <option value="none">None</option>
+                            <option value="drift">Sensor Drift</option>
+                            <option value="stuck_axis">Stuck Axis</option>
+                            <option value="noise">Excessive Noise</option>
+                            <option value="missing_packets">Missing Packets</option>
+                        </select>
+                    </div>
+                    <div class="config-group">
+                        <label for="fault-axis">Axis:</label>
+                        <select id="fault-axis">
+                            <option value="x">X Axis</option>
+                            <option value="y">Y Axis</option>
+                            <option value="z">Z Axis</option>
+                        </select>
+                    </div>
+                    <div class="config-group">
+                        <label for="fault-severity">Severity:</label>
+                        <input type="range" id="fault-severity" min="0.1" max="10" step="0.1" value="1">
+                        <span id="fault-severity-value">1.0</span>
+                    </div>
+                    <button id="apply-fault" class="btn btn-warning">
+                        <i class="fas fa-bug"></i> Apply Fault
+                    </button>
+                </div>
+
+                <!-- System Actions -->
+                <div class="panel-section">
+                    <h3><i class="fas fa-tools"></i> System Actions</h3>
+                    <button id="run-self-test" class="btn btn-info">
+                        <i class="fas fa-vial"></i> Run Self-Test
+                    </button>
+                    <button id="download-logs" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Download Logs
+                    </button>
+                    <button id="reset-position" class="btn btn-secondary">
+                        <i class="fas fa-home"></i> Reset Position
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Center Panel -->
+            <section class="center-panel">
+                <!-- Robot Visualization -->
+                <div class="visualization-container">
+                    <h3><i class="fas fa-map"></i> Robot Position & Path</h3>
+                    <div id="robot-plot" class="plot-container"></div>
+                </div>
+
+                <!-- IMU Data Visualization -->
+                <div class="visualization-container">
+                    <h3><i class="fas fa-chart-line"></i> IMU Sensor Data</h3>
+                    <div class="plot-tabs">
+                        <button class="tab-button active" data-tab="accelerometer">Accelerometer</button>
+                        <button class="tab-button" data-tab="gyroscope">Gyroscope</button>
+                        <button class="tab-button" data-tab="magnetometer">Magnetometer</button>
+                    </div>
+                    <div id="imu-plot" class="plot-container"></div>
+                </div>
+            </section>
+
+            <!-- Right Panel -->
+            <aside class="right-panel">
+                <!-- Real-time Data -->
+                <div class="panel-section">
+                    <h3><i class="fas fa-tachometer-alt"></i> Real-time Data</h3>
+                    
+                    <!-- IMU Data -->
+                    <div class="data-group">
+                        <h4>IMU Sensors</h4>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <span class="data-label">Acc X:</span>
+                                <span id="acc-x" class="data-value">0.00</span>
+                                <span class="data-unit">m/s²</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Acc Y:</span>
+                                <span id="acc-y" class="data-value">0.00</span>
+                                <span class="data-unit">m/s²</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Acc Z:</span>
+                                <span id="acc-z" class="data-value">0.00</span>
+                                <span class="data-unit">m/s²</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Gyro X:</span>
+                                <span id="gyro-x" class="data-value">0.00</span>
+                                <span class="data-unit">rad/s</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Gyro Y:</span>
+                                <span id="gyro-y" class="data-value">0.00</span>
+                                <span class="data-unit">rad/s</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Gyro Z:</span>
+                                <span id="gyro-z" class="data-value">0.00</span>
+                                <span class="data-unit">rad/s</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orientation -->
+                    <div class="data-group">
+                        <h4>Orientation</h4>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <span class="data-label">Roll:</span>
+                                <span id="roll" class="data-value">0.00</span>
+                                <span class="data-unit">°</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Pitch:</span>
+                                <span id="pitch" class="data-value">0.00</span>
+                                <span class="data-unit">°</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Yaw:</span>
+                                <span id="yaw" class="data-value">0.00</span>
+                                <span class="data-unit">°</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Position -->
+                    <div class="data-group">
+                        <h4>Position</h4>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <span class="data-label">X:</span>
+                                <span id="pos-x" class="data-value">0.00</span>
+                                <span class="data-unit">m</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Y:</span>
+                                <span id="pos-y" class="data-value">0.00</span>
+                                <span class="data-unit">m</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Angle:</span>
+                                <span id="robot-angle" class="data-value">0.00</span>
+                                <span class="data-unit">°</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Motor Status -->
+                    <div class="data-group">
+                        <h4>Motor Status</h4>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <span class="data-label">Left Motor:</span>
+                                <span id="motor-left" class="data-value">0</span>
+                                <span class="data-unit">rpm</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Right Motor:</span>
+                                <span id="motor-right" class="data-value">0</span>
+                                <span class="data-unit">rpm</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Auger:</span>
+                                <span id="auger-speed" class="data-value">0</span>
+                                <span class="data-unit">rpm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Status -->
+                <div class="panel-section">
+                    <h3><i class="fas fa-info-circle"></i> System Status</h3>
+                    <div class="status-grid">
+                        <div class="status-card">
+                            <div class="status-icon">
+                                <i id="connection-icon" class="fas fa-wifi-slash"></i>
+                            </div>
+                            <div class="status-info">
+                                <div class="status-title">Hardware Connection</div>
+                                <div id="connection-status" class="status-detail">Disconnected</div>
+                            </div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-icon">
+                                <i id="packets-icon" class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="status-info">
+                                <div class="status-title">Packets</div>
+                                <div id="packet-info" class="status-detail">0 / 0 errors</div>
+                            </div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-icon">
+                                <i id="route-icon" class="fas fa-route"></i>
+                            </div>
+                            <div class="status-info">
+                                <div class="status-title">Route Status</div>
+                                <div id="route-status" class="status-detail">Idle</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Messages -->
+                <div class="panel-section">
+                    <h3><i class="fas fa-exclamation-circle"></i> Messages</h3>
+                    <div id="message-log" class="message-log"></div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="self-test-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>IMU Self-Test Results</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="self-test-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
