@@ -47,6 +47,52 @@ MOOver_Merge/
 └── README.md                 # This file
 ```
 
+## 🚀 Quick Deployment on Railway
+
+### Deploy to Railway (Recommended)
+
+1. **Fork this repository** or clone it to your GitHub account
+
+2. **Connect to Railway**:
+   ```bash
+   # Install Railway CLI
+   npm install -g @railway/cli
+   
+   # Login to Railway
+   railway login
+   
+   # Deploy from web-simulator directory
+   cd web-simulator
+   railway up
+   ```
+
+3. **Set environment variables** (optional - defaults work for most cases):
+   ```bash
+   railway variables set PORT=3000
+   railway variables set PYTHONUNBUFFERED=1
+   ```
+
+4. **Access your deployment**:
+   - Railway will provide a public URL
+   - The HIL simulator will be available immediately
+   - Health check available at `/api/health`
+
+### Local Docker Deployment
+
+1. **Build and run with Docker**:
+   ```bash
+   cd web-simulator
+   docker build -t melkens-hil .
+   docker run -p 3000:3000 melkens-hil
+   ```
+
+2. **Access the simulator**:
+   - Open http://localhost:3000
+   - Dashboard loads automatically
+   - API available at http://localhost:3000/api/
+
+### Development Setup
+
 ## Quick Start
 
 ### 1. HIL Simulator Setup (Recommended)

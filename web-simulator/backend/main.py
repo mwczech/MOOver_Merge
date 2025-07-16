@@ -8,6 +8,7 @@ import asyncio
 import json
 import logging
 import os
+import os
 import time
 from datetime import datetime
 from pathlib import Path
@@ -63,8 +64,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount static files
-app.mount("/static", StaticFiles(directory="../frontend"), name="static")
+# Mount static files - handle both local development and Docker deployment
+frontend_path = Path(__file__).parent.parent / "frontend"
+if not frontend_path.exists():
+    # For Docker deployment, frontend is copied to /app/frontend
+    frontend_path = Path("/app/frontend")
+
+app.mount("/static", StaticFiles(directory=str(frontend_path)), name="static")
 
 # Global state
 imu_manager = IMUManager()
@@ -631,11 +637,38 @@ async def process_imu_data_with_faults():
             print(f"Error in enhanced IMU processing: {e}")
             await asyncio.sleep(0.1)
 
+# Root endpoint - serve main frontend page
+@app.get("/")
+async def read_root():
+    """Serve the main frontend page"""
+    try:
+        frontend_file = frontend_path / "index.html"
+        if frontend_file.exists():
+            with open(frontend_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            return HTMLResponse(content=content)
+        else:
+            return HTMLResponse(content="<h1>MELKENS HIL Simulator</h1><p>Frontend not found</p>", status_code=404)
+    except Exception as e:
+        return HTMLResponse(content=f"<h1>Error</h1><p>{str(e)}</p>", status_code=500)
+
+# Health check endpoint for Railway/Docker
+@app.get("/api/health")
+async def health_check():
+    """Health check endpoint for deployment monitoring"""
+    return {
+        "status": "healthy",
+        "timestamp": datetime.now().isoformat(),
+        "service": "MELKENS HIL Simulator",
+        "version": "1.0"
+    }
+
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
-        port=8000,
-        reload=True,
+        port=port,
+        reload=False,  # Disable reload in production
         log_level="info"
     )
