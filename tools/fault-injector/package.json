@@ -1,0 +1,44 @@
+{
+  "name": "@melkens/fault-injector",
+  "version": "1.0.0",
+  "description": "Fault injection and testing tool for MELKENS robot system",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "fault-injector": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "cli": "node dist/cli.js",
+    "dev": "tsx src/index.ts",
+    "dev:cli": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.13.0",
+    "commander": "^10.0.0",
+    "inquirer": "^9.1.5",
+    "chalk": "^5.2.0",
+    "axios": "^1.3.4",
+    "node-cron": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/ws": "^8.5.4",
+    "@types/node": "^18.15.0",
+    "@types/inquirer": "^9.0.3",
+    "@types/node-cron": "^3.0.7",
+    "typescript": "^4.9.5",
+    "tsx": "^3.12.6"
+  },
+  "keywords": [
+    "melkens",
+    "fault-injection",
+    "testing",
+    "simulation",
+    "robot"
+  ],
+  "author": "MELKENS Team",
+  "license": "MIT"
+}
