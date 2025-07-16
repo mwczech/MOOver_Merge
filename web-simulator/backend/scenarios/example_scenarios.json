@@ -1,0 +1,213 @@
+{
+  "scenarios": [
+    {
+      "id": "basic_acc_stuck",
+      "name": "Basic Accelerometer Stuck",
+      "description": "Accelerometer X-axis freezes at 2.5 m/s² for 20 seconds during route execution",
+      "fault_type": "stuck_value",
+      "severity": "medium",
+      "target_sensor": "accelerometer",
+      "target_axis": "x",
+      "start_time": 10.0,
+      "duration": 20.0,
+      "parameters": {
+        "stuck_value": 2.5
+      }
+    },
+    {
+      "id": "high_gyro_noise",
+      "name": "High Gyroscope Noise",
+      "description": "Inject high-level noise (σ=0.8 rad/s) to all gyroscope axes for 30 seconds",
+      "fault_type": "noise_injection",
+      "severity": "high",
+      "target_sensor": "gyroscope",
+      "target_axis": "all",
+      "start_time": 15.0,
+      "duration": 30.0,
+      "parameters": {
+        "noise_level": 0.8
+      }
+    },
+    {
+      "id": "magnetometer_bias_drift",
+      "name": "Magnetometer Bias Drift",
+      "description": "Gradual bias drift in magnetometer Z-axis at 0.1 µT/s for 60 seconds",
+      "fault_type": "bias_drift",
+      "severity": "medium",
+      "target_sensor": "magnetometer",
+      "target_axis": "z",
+      "start_time": 5.0,
+      "duration": 60.0,
+      "parameters": {
+        "bias_rate": 0.1
+      }
+    },
+    {
+      "id": "critical_packet_loss",
+      "name": "Critical Packet Loss",
+      "description": "30% packet loss affecting all IMU data for 45 seconds",
+      "fault_type": "packet_loss",
+      "severity": "critical",
+      "target_sensor": "accelerometer",
+      "target_axis": "all",
+      "start_time": 20.0,
+      "duration": 45.0,
+      "parameters": {
+        "loss_rate": 0.3
+      }
+    },
+    {
+      "id": "accelerometer_saturation",
+      "name": "Accelerometer Saturation",
+      "description": "Accelerometer values saturate at ±6g for 25 seconds",
+      "fault_type": "saturation",
+      "severity": "high",
+      "target_sensor": "accelerometer",
+      "target_axis": "all",
+      "start_time": 30.0,
+      "duration": 25.0,
+      "parameters": {
+        "min_value": -6.0,
+        "max_value": 6.0
+      }
+    },
+    {
+      "id": "gyro_axis_failure",
+      "name": "Gyroscope Y-Axis Failure",
+      "description": "Complete failure of gyroscope Y-axis (reads zero) for 40 seconds",
+      "fault_type": "axis_loss",
+      "severity": "high",
+      "target_sensor": "gyroscope",
+      "target_axis": "y",
+      "start_time": 25.0,
+      "duration": 40.0,
+      "parameters": {}
+    },
+    {
+      "id": "periodic_interference",
+      "name": "Periodic Magnetic Interference",
+      "description": "5Hz periodic glitch on magnetometer X-axis with ±10µT amplitude",
+      "fault_type": "periodic_glitch",
+      "severity": "medium",
+      "target_sensor": "magnetometer",
+      "target_axis": "x",
+      "start_time": 12.0,
+      "duration": 50.0,
+      "parameters": {
+        "frequency": 5.0,
+        "amplitude": 10.0
+      }
+    },
+    {
+      "id": "accelerometer_scale_error",
+      "name": "Accelerometer Scale Error",
+      "description": "2x scaling error on all accelerometer axes for 35 seconds",
+      "fault_type": "scale_error",
+      "severity": "high",
+      "target_sensor": "accelerometer",
+      "target_axis": "all",
+      "start_time": 8.0,
+      "duration": 35.0,
+      "parameters": {
+        "scale_factor": 2.0
+      }
+    },
+    {
+      "id": "low_level_gyro_bias",
+      "name": "Low-Level Gyroscope Bias",
+      "description": "Gradual bias drift in gyroscope Z-axis at 0.01 rad/s per second",
+      "fault_type": "bias_drift",
+      "severity": "low",
+      "target_sensor": "gyroscope",
+      "target_axis": "z",
+      "start_time": 18.0,
+      "duration": 80.0,
+      "parameters": {
+        "bias_rate": 0.01
+      }
+    },
+    {
+      "id": "multi_axis_magnetometer_failure",
+      "name": "Multi-Axis Magnetometer Failure",
+      "description": "Complete failure of magnetometer X and Y axes for 30 seconds",
+      "fault_type": "axis_loss",
+      "severity": "critical",
+      "target_sensor": "magnetometer",
+      "target_axis": "all",
+      "start_time": 22.0,
+      "duration": 30.0,
+      "parameters": {}
+    },
+    {
+      "id": "intermittent_data_loss",
+      "name": "Intermittent Data Loss",
+      "description": "15% packet loss with burst characteristics affecting system stability",
+      "fault_type": "packet_loss",
+      "severity": "medium",
+      "target_sensor": "accelerometer",
+      "target_axis": "all",
+      "start_time": 35.0,
+      "duration": 40.0,
+      "parameters": {
+        "loss_rate": 0.15
+      }
+    },
+    {
+      "id": "temperature_drift_simulation",
+      "name": "Temperature Drift Simulation",
+      "description": "Simulated temperature-induced bias drift on all accelerometer axes",
+      "fault_type": "bias_drift",
+      "severity": "low",
+      "target_sensor": "accelerometer",
+      "target_axis": "all",
+      "start_time": 5.0,
+      "duration": 120.0,
+      "parameters": {
+        "bias_rate": 0.005
+      }
+    },
+    {
+      "id": "vibration_noise_test",
+      "name": "Vibration Noise Test",
+      "description": "High-frequency vibration noise on accelerometer simulating mechanical disturbance",
+      "fault_type": "periodic_glitch",
+      "severity": "medium",
+      "target_sensor": "accelerometer",
+      "target_axis": "all",
+      "start_time": 40.0,
+      "duration": 20.0,
+      "parameters": {
+        "frequency": 25.0,
+        "amplitude": 0.5
+      }
+    },
+    {
+      "id": "magnetic_storm_simulation",
+      "name": "Magnetic Storm Simulation",
+      "description": "Severe magnetic interference affecting all magnetometer axes",
+      "fault_type": "noise_injection",
+      "severity": "critical",
+      "target_sensor": "magnetometer",
+      "target_axis": "all",
+      "start_time": 50.0,
+      "duration": 15.0,
+      "parameters": {
+        "noise_level": 25.0
+      }
+    },
+    {
+      "id": "sensor_aging_test",
+      "name": "Sensor Aging Test",
+      "description": "Simulated sensor aging with reduced sensitivity (0.8x scale factor)",
+      "fault_type": "scale_error",
+      "severity": "low",
+      "target_sensor": "gyroscope",
+      "target_axis": "all",
+      "start_time": 0.0,
+      "duration": 180.0,
+      "parameters": {
+        "scale_factor": 0.8
+      }
+    }
+  ]
+}

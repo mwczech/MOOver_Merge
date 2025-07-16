@@ -11,19 +11,22 @@ import os
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional, Union, Any
 
 import structlog
 import uvicorn
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from pydantic import BaseModel
 
 from imu_manager import IMUManager
 from data_logger import DataLogger
 from robot_simulator import RobotSimulator
+
+# New import for advanced scenarios
+from scenario_runner import AdvancedScenarioRunner, FaultScenario, FaultType, FaultSeverity
 
 # Configure logging
 structlog.configure(
@@ -64,10 +67,13 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory="../frontend"), name="static")
 
 # Global state
-imu_manager = None
-data_logger = None
-robot_simulator = None
+imu_manager = IMUManager()
+data_logger = DataLogger()
+robot_simulator = RobotSimulator()
 connected_websockets: List[WebSocket] = []
+
+# New: Advanced scenario runner
+scenario_runner = AdvancedScenarioRunner(data_logger=data_logger)
 
 # Pydantic models
 class SystemConfig(BaseModel):
@@ -282,6 +288,348 @@ async def broadcast_to_websockets(message: dict):
         # Remove disconnected websockets
         for ws in disconnected:
             connected_websockets.remove(ws)
+
+# ========================
+# Advanced Scenario API Endpoints
+# ========================
+
+class ScenarioRequest(BaseModel):
+    id: str
+    name: str
+    description: str
+    fault_type: str
+    severity: str
+    target_sensor: str
+    target_axis: str
+    start_time: float
+    duration: float
+    parameters: Dict[str, Any] = {}
+
+class TestRunRequest(BaseModel):
+    scenario_id: str
+    route_name: str = "A"
+
+@app.post("/api/scenarios/upload")
+async def upload_scenarios(file: UploadFile = File(...)):
+    """Upload scenario file (JSON or CSV)"""
+    try:
+        # Save uploaded file temporarily
+        temp_file = Path(f"temp_{file.filename}")
+        content = await file.read()
+        temp_file.write_bytes(content)
+        
+        # Load scenarios based on file type
+        if file.filename.endswith('.json'):
+            count = scenario_runner.scenario_manager.load_scenarios_from_json(str(temp_file))
+        elif file.filename.endswith('.csv'):
+            count = scenario_runner.scenario_manager.load_scenarios_from_csv(str(temp_file))
+        else:
+            raise HTTPException(status_code=400, detail="Unsupported file type. Use JSON or CSV.")
+        
+        # Clean up
+        temp_file.unlink()
+        
+        return {
+            "status": "success",
+            "message": f"Loaded {count} scenarios from {file.filename}",
+            "scenarios_loaded": count
+        }
+    
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/api/scenarios")
+async def list_scenarios():
+    """List all available fault injection scenarios"""
+    try:
+        scenarios = scenario_runner.scenario_manager.list_scenarios()
+        return {
+            "status": "success",
+            "scenarios": scenarios,
+            "count": len(scenarios)
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.post("/api/scenarios")
+async def create_scenario(scenario_request: ScenarioRequest):
+    """Create a new fault injection scenario"""
+    try:
+        scenario = FaultScenario(
+            id=scenario_request.id,
+            name=scenario_request.name,
+            description=scenario_request.description,
+            fault_type=FaultType(scenario_request.fault_type),
+            severity=FaultSeverity(scenario_request.severity),
+            target_sensor=scenario_request.target_sensor,
+            target_axis=scenario_request.target_axis,
+            start_time=scenario_request.start_time,
+            duration=scenario_request.duration,
+            parameters=scenario_request.parameters
+        )
+        
+        scenario_runner.scenario_manager.add_scenario(scenario)
+        
+        return {
+            "status": "success",
+            "message": f"Scenario '{scenario.name}' created successfully",
+            "scenario": scenario.to_dict()
+        }
+    
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/api/scenarios/{scenario_id}")
+async def get_scenario(scenario_id: str):
+    """Get details of a specific scenario"""
+    try:
+        scenario = scenario_runner.scenario_manager.get_scenario(scenario_id)
+        if not scenario:
+            raise HTTPException(status_code=404, detail="Scenario not found")
+        
+        return {
+            "status": "success",
+            "scenario": scenario.to_dict()
+        }
+    
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.post("/api/scenarios/{scenario_id}/run")
+async def run_scenario_test(scenario_id: str, request: TestRunRequest = None):
+    """Run a fault injection scenario test"""
+    try:
+        route_name = request.route_name if request else "A"
+        
+        # Set the robot route
+        robot_simulator.set_route(route_name)
+        
+        # Run the scenario
+        result = await scenario_runner.run_scenario(scenario_id, route_name)
+        
+        return {
+            "status": "success",
+            "message": f"Scenario test completed",
+            "result": {
+                "scenario_id": result.scenario_id,
+                "route_completed": result.route_completed,
+                "completion_percentage": result.completion_percentage,
+                "fault_detected": result.fault_detected,
+                "detection_time": result.detection_time,
+                "recovery_achieved": result.recovery_achieved,
+                "recovery_time": result.recovery_time,
+                "performance_metrics": result.performance_metrics,
+                "navigation_error_count": len(result.navigation_errors)
+            }
+        }
+    
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/api/scenarios/results")
+async def get_test_results():
+    """Get all test results"""
+    try:
+        results = scenario_runner.scenario_manager.test_results
+        
+        return {
+            "status": "success",
+            "results": [
+                {
+                    "scenario_id": r.scenario_id,
+                    "start_time": r.start_time.isoformat(),
+                    "end_time": r.end_time.isoformat(),
+                    "route_completed": r.route_completed,
+                    "completion_percentage": r.completion_percentage,
+                    "fault_detected": r.fault_detected,
+                    "detection_time": r.detection_time,
+                    "recovery_achieved": r.recovery_achieved,
+                    "recovery_time": r.recovery_time,
+                    "navigation_error_count": len(r.navigation_errors),
+                    "performance_metrics": r.performance_metrics
+                }
+                for r in results
+            ],
+            "count": len(results)
+        }
+    
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/api/scenarios/report")
+async def generate_scenario_report(scenario_ids: Optional[str] = None):
+    """Generate comprehensive scenario test report"""
+    try:
+        scenario_id_list = scenario_ids.split(',') if scenario_ids else None
+        report = scenario_runner.generate_scenario_report(scenario_id_list)
+        
+        return {
+            "status": "success",
+            "report": report
+        }
+    
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/api/scenarios/export/csv")
+async def export_results_csv():
+    """Export test results to CSV file"""
+    try:
+        output_file = "logs/scenario_results.csv"
+        scenario_runner.export_results_csv(output_file)
+        
+        return FileResponse(
+            path=output_file,
+            filename="scenario_results.csv",
+            media_type="text/csv"
+        )
+    
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/api/scenarios/fault-types")
+async def get_fault_types():
+    """Get available fault types and their descriptions"""
+    try:
+        fault_types = {
+            "stuck_value": {
+                "name": "Stuck Value",
+                "description": "Sensor value freezes at current reading",
+                "parameters": ["stuck_value (optional)"]
+            },
+            "axis_loss": {
+                "name": "Axis Loss",
+                "description": "Complete failure of sensor axis",
+                "parameters": []
+            },
+            "bias_drift": {
+                "name": "Bias Drift",
+                "description": "Gradual bias introduction over time",
+                "parameters": ["bias_rate (units/second)"]
+            },
+            "noise_injection": {
+                "name": "Noise Injection",
+                "description": "Add random noise to sensor readings",
+                "parameters": ["noise_level (standard deviation)"]
+            },
+            "packet_loss": {
+                "name": "Packet Loss",
+                "description": "Random loss of data packets",
+                "parameters": ["loss_rate (0.0-1.0)"]
+            },
+            "scale_error": {
+                "name": "Scale Error",
+                "description": "Incorrect scaling factor applied",
+                "parameters": ["scale_factor (multiplier)"]
+            },
+            "periodic_glitch": {
+                "name": "Periodic Glitch",
+                "description": "Periodic disturbances in data",
+                "parameters": ["frequency (Hz)", "amplitude"]
+            },
+            "saturation": {
+                "name": "Saturation",
+                "description": "Values clipped to min/max limits",
+                "parameters": ["min_value", "max_value"]
+            }
+        }
+        
+        severities = {
+            "low": "Minor impact on system performance",
+            "medium": "Moderate impact, system should handle gracefully",
+            "high": "Significant impact, may cause navigation issues",
+            "critical": "Severe impact, system failure expected"
+        }
+        
+        return {
+            "status": "success",
+            "fault_types": fault_types,
+            "severities": severities
+        }
+    
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+# ========================
+# Enhanced WebSocket for Scenario Monitoring
+# ========================
+
+@app.websocket("/ws/scenarios")
+async def websocket_scenario_endpoint(websocket: WebSocket):
+    """WebSocket endpoint for real-time scenario monitoring"""
+    await websocket.accept()
+    
+    try:
+        while True:
+            # Send scenario status if test is running
+            if scenario_runner.is_running:
+                status_data = {
+                    "type": "scenario_status",
+                    "data": {
+                        "test_id": scenario_runner.current_test_id,
+                        "is_running": scenario_runner.is_running,
+                        "active_faults": len(scenario_runner.scenario_manager.fault_injector.active_faults),
+                        "route_progress": scenario_runner.system_monitor.route_progress,
+                        "fault_detections": len(scenario_runner.system_monitor.fault_detections),
+                        "navigation_errors": len(scenario_runner.system_monitor.navigation_errors),
+                        "performance_metrics": scenario_runner.system_monitor.get_performance_metrics()
+                    }
+                }
+                await websocket.send_text(json.dumps(status_data))
+            
+            await asyncio.sleep(0.1)  # 10Hz update rate
+    
+    except Exception as e:
+        print(f"WebSocket error: {e}")
+
+# ========================
+# Integration with existing IMU processing
+# ========================
+
+async def process_imu_data_with_faults():
+    """Enhanced IMU data processing with fault injection"""
+    while True:
+        try:
+            # Get current IMU data
+            imu_data = imu_manager.get_current_data()
+            
+            # Apply fault injection if scenario is running
+            if scenario_runner.is_running:
+                # Apply faults to IMU data
+                modified_data = scenario_runner.scenario_manager.fault_injector.apply_faults(imu_data)
+                
+                # Check for packet loss
+                if not scenario_runner.scenario_manager.fault_injector.should_drop_packet():
+                    # Update system monitor
+                    scenario_runner.system_monitor.update_imu_state(
+                        modified_data, 
+                        scenario_runner.scenario_manager.fault_injector
+                    )
+                    
+                    # Use modified data for robot simulation
+                    robot_simulator.update_imu_data(modified_data)
+                else:
+                    # Skip this update due to packet loss
+                    pass
+            else:
+                # Normal operation without faults
+                robot_simulator.update_imu_data(imu_data)
+            
+            # Update scenario monitor with robot state
+            if scenario_runner.is_running:
+                robot_data = {
+                    'x': robot_simulator.position[0],
+                    'y': robot_simulator.position[1],
+                    'step_progress': robot_simulator.get_route_progress(),
+                    'status': 'running'
+                }
+                scenario_runner.system_monitor.update_robot_state(robot_data)
+            
+            await asyncio.sleep(0.02)  # 50Hz
+            
+        except Exception as e:
+            print(f"Error in enhanced IMU processing: {e}")
+            await asyncio.sleep(0.1)
 
 if __name__ == "__main__":
     uvicorn.run(

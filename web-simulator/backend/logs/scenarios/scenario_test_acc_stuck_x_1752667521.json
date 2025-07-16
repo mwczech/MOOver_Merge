@@ -1,0 +1,240 @@
+{
+  "test_result": {
+    "scenario_id": "acc_stuck_x",
+    "start_time": "2025-07-16 12:05:21.307900",
+    "end_time": "2025-07-16 12:05:21.409886",
+    "route_completed": false,
+    "completion_percentage": 90.0,
+    "fault_detected": false,
+    "detection_time": null,
+    "recovery_achieved": false,
+    "recovery_time": null,
+    "navigation_errors": [],
+    "performance_metrics": {
+      "route_completion_percentage": 90.0,
+      "total_distance_traveled": 0.9,
+      "navigation_error_count": 0,
+      "fault_detection_count": 0,
+      "test_duration": 0.10199522972106934,
+      "avg_velocity": 5.0,
+      "velocity_std": 1.7263085464370499e-15,
+      "navigation_stability_score": 0.9999999999999982
+    },
+    "raw_data_file": "logs/scenario_test_acc_stuck_x_1752667521.json"
+  },
+  "performance_data": [
+    {
+      "time": 0.010158300399780273,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    },
+    {
+      "time": 0.020326614379882812,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    },
+    {
+      "time": 0.03060126304626465,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    },
+    {
+      "time": 0.040769338607788086,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    },
+    {
+      "time": 0.050940752029418945,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    },
+    {
+      "time": 0.06127500534057617,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    },
+    {
+      "time": 0.07146072387695312,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    },
+    {
+      "time": 0.08162903785705566,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    },
+    {
+      "time": 0.0917975902557373,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    },
+    {
+      "time": 0.10196614265441895,
+      "imu_data": {
+        "accelerometer": {
+          "x": 1.0,
+          "y": 2.0,
+          "z": 9.8
+        },
+        "gyroscope": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "magnetometer": {
+          "x": 20.0,
+          "y": -10.0,
+          "z": 45.0
+        }
+      },
+      "active_faults": 0
+    }
+  ],
+  "fault_history": [],
+  "navigation_errors": [],
+  "fault_detections": []
+}
