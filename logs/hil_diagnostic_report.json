@@ -1,0 +1,172 @@
+{
+  "timestamp": "2025-07-16T11:50:26.217503",
+  "overall_status": "HIL READY WITH WARNINGS",
+  "system_ready": true,
+  "summary": {
+    "total_tests": 21,
+    "passed": 13,
+    "failed": 1,
+    "warnings": 2,
+    "critical_failures": 0
+  },
+  "detected_ports": [],
+  "diagnostic_results": [
+    {
+      "timestamp": "2025-07-16T11:50:26.185289",
+      "test": "Dependency Check",
+      "status": "INFO",
+      "details": "Checking system dependencies...",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.185312",
+      "test": "Python Version",
+      "status": "PASS",
+      "details": "Python 3.13.3",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.185318",
+      "test": "PySerial Library",
+      "status": "PASS",
+      "details": "pyserial available",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.186302",
+      "test": "System Tool: python3",
+      "status": "PASS",
+      "details": "/workspace/web-simulator/backend/venv/bin/python3",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.187124",
+      "test": "System Tool: pip3",
+      "status": "PASS",
+      "details": "/workspace/web-simulator/backend/venv/bin/pip3",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188236",
+      "test": "Serial Port Detection",
+      "status": "INFO",
+      "details": "Found 1 serial ports",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188267",
+      "test": "Port /dev/ttyS0",
+      "status": "INFO",
+      "details": "\ud83d\udcf1 n/a (No VID:PID)",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188282",
+      "test": "IMU Port Detection",
+      "status": "WARN",
+      "details": "No potential IMU devices detected. Manual configuration may be required.",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188312",
+      "test": "Serial Communication Test",
+      "status": "WARN",
+      "details": "No IMU ports detected - skipping communication test",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188327",
+      "test": "System Configuration",
+      "status": "INFO",
+      "details": "Validating HIL system configuration",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188377",
+      "test": "  File: main.py",
+      "status": "PASS",
+      "details": "Present (8,886 bytes)",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188408",
+      "test": "  File: imu_manager.py",
+      "status": "PASS",
+      "details": "Present (24,066 bytes)",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188427",
+      "test": "  File: robot_simulator.py",
+      "status": "PASS",
+      "details": "Present (15,781 bytes)",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188443",
+      "test": "  File: data_logger.py",
+      "status": "PASS",
+      "details": "Present (12,091 bytes)",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188463",
+      "test": "  File: requirements.txt",
+      "status": "PASS",
+      "details": "Present (213 bytes)",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188494",
+      "test": "  Frontend: index.html",
+      "status": "PASS",
+      "details": "Present",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188513",
+      "test": "  Frontend: style.css",
+      "status": "PASS",
+      "details": "Present",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188532",
+      "test": "  Frontend: main.js",
+      "status": "PASS",
+      "details": "Present",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188568",
+      "test": "  Logs Directory",
+      "status": "PASS",
+      "details": "Available at /workspace/web-simulator/backend/../../logs",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.188591",
+      "test": "Server Import Test",
+      "status": "INFO",
+      "details": "Testing backend server imports",
+      "critical": false
+    },
+    {
+      "timestamp": "2025-07-16T11:50:26.217455",
+      "test": "  main.py import",
+      "status": "FAIL",
+      "details": "Import error: No module named 'structlog'",
+      "critical": false
+    }
+  ],
+  "recommendations": [
+    "Connect MELKENS IMU device via USB",
+    "Check device drivers are installed",
+    "Verify device appears in system device manager",
+    "Try different USB cable or port",
+    "System appears ready for HIL operation",
+    "Run full server test: python3 main.py",
+    "Test web interface at http://localhost:8000",
+    "Verify IMU data streaming in dashboard"
+  ]
+}
