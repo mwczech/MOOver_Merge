@@ -8,6 +8,8 @@ import { WebSocketServer } from './services/WebSocketServer';
 import { createRobotRoutes } from './routes/robotRoutes';
 import { createRoutesRoutes } from './routes/routesRoutes';
 import { createLogsRoutes, addLogEntry } from './routes/logsRoutes';
+import { createIMURoutes } from './routes/imuRoutes';
+import { HardwareBridge } from './services/HardwareBridge';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler';
 import { ApiResponse } from '@melkens/shared';
 
@@ -15,16 +17,28 @@ class SimulatorServer {
   private app: express.Application;
   private robotSimulator: RobotSimulator;
   private webSocketServer: WebSocketServer;
+  private hardwareBridge: HardwareBridge;
 
   constructor() {
     this.app = express();
     this.robotSimulator = new RobotSimulator();
+    this.hardwareBridge = new HardwareBridge({
+      imu: {
+        enabled: true,
+        autoDetect: true,
+        baudRate: 115200
+      }
+    });
     this.webSocketServer = new WebSocketServer(this.robotSimulator);
+    
+    // Connect hardware bridge to robot simulator for HIL integration
+    this.robotSimulator.setHardwareBridge(this.hardwareBridge);
     
     this.setupMiddleware();
     this.setupRoutes();
     this.setupErrorHandling();
     this.setupRobotSimulatorEvents();
+    this.setupHardwareBridgeEvents();
   }
 
   private setupMiddleware(): void {
@@ -80,6 +94,7 @@ class SimulatorServer {
     this.app.use('/api/robot', createRobotRoutes(this.robotSimulator));
     this.app.use('/api/routes', createRoutesRoutes(this.robotSimulator));
     this.app.use('/api/logs', createLogsRoutes());
+    this.app.use('/api/imu', createIMURoutes(this.hardwareBridge));
 
     // API info endpoint
     this.app.get('/api', (req, res) => {
@@ -93,6 +108,7 @@ class SimulatorServer {
             robot: '/api/robot',
             routes: '/api/routes',
             logs: '/api/logs',
+            imu: '/api/imu',
             websocket: `/ws (port ${config.websocket.port})`
           },
           documentation: '/docs'
@@ -137,6 +153,95 @@ class SimulatorServer {
     });
   }
 
+  private setupHardwareBridgeEvents(): void {
+    // IMU connection events
+    this.hardwareBridge.on('imu_connected', () => {
+      console.log('IMU hardware connected');
+      this.webSocketServer.broadcast('imu_status_changed', {
+        connected: true,
+        timestamp: Date.now()
+      });
+    });
+
+    this.hardwareBridge.on('imu_disconnected', () => {
+      console.log('IMU hardware disconnected');
+      this.webSocketServer.broadcast('imu_status_changed', {
+        connected: false,
+        timestamp: Date.now()
+      });
+    });
+
+    // IMU data streaming (50ms intervals)
+    this.hardwareBridge.on('imu_stream_data', (data) => {
+      this.webSocketServer.broadcast('imu_data', data);
+    });
+
+    // Hardware mode changes
+    this.hardwareBridge.on('imu_hardware_mode_enabled', () => {
+      console.log('IMU hardware mode enabled - using real sensor data');
+      this.webSocketServer.broadcast('imu_mode_changed', {
+        hardwareMode: true,
+        timestamp: Date.now()
+      });
+    });
+
+    this.hardwareBridge.on('imu_hardware_mode_disabled', () => {
+      console.log('IMU hardware mode disabled - using simulated data');
+      this.webSocketServer.broadcast('imu_mode_changed', {
+        hardwareMode: false,
+        timestamp: Date.now()
+      });
+    });
+
+    // Fault injection events
+    this.hardwareBridge.on('imu_fault_injection_updated', (faults) => {
+      console.log('IMU fault injection updated:', faults);
+      this.webSocketServer.broadcast('imu_fault_injection_changed', faults);
+    });
+
+    // Error handling
+    this.hardwareBridge.on('imu_error', (error) => {
+      console.error('IMU hardware error:', error);
+      this.webSocketServer.broadcast('imu_error', {
+        error: error.message || 'Unknown IMU error',
+        timestamp: Date.now()
+      });
+      
+      addLogEntry({
+        id: `imu_error_${Date.now()}`,
+        timestamp: Date.now(),
+        level: 'error',
+        source: 'imu_hardware',
+        message: `IMU Error: ${error.message || 'Unknown error'}`,
+        data: { error: error.toString() }
+      });
+    });
+
+    this.hardwareBridge.on('imu_crc_error', (error) => {
+      console.warn('IMU CRC error:', error);
+      addLogEntry({
+        id: `imu_crc_error_${Date.now()}`,
+        timestamp: Date.now(),
+        level: 'warning',
+        source: 'imu_hardware',
+        message: `IMU CRC Error - expected: ${error.expected}, calculated: ${error.calculated}`,
+        data: error
+      });
+    });
+
+    this.hardwareBridge.on('imu_parse_error', (error) => {
+      console.warn('IMU parse error:', error);
+      addLogEntry({
+        id: `imu_parse_error_${Date.now()}`,
+        timestamp: Date.now(),
+        level: 'warning',
+        source: 'imu_hardware',
+        message: `IMU Parse Error: ${error.message || 'Failed to parse IMU data'}`,
+        data: { error: error.toString() }
+      });
+    });
+  }
+
   public start(): void {
     // Start robot simulator
     this.robotSimulator.start();
@@ -168,12 +273,17 @@ API Endpoints:
     });
   }
 
-  public stop(): void {
+  public async stop(): Promise<void> {
     console.log('Shutting down server...');
     
     if (this.robotSimulator) {
       this.robotSimulator.stop();
       console.log('Robot simulator stopped');
+    }
+    
+    if (this.hardwareBridge) {
+      await this.hardwareBridge.close();
+      console.log('Hardware bridge stopped');
     }
     
     if (this.webSocketServer) {

@@ -2,6 +2,7 @@ import { EventEmitter } from 'events';
 import { SerialPort } from 'serialport';
 import { ReadlineParser } from '@serialport/parser-readline';
 import { RobotState, SensorState, MotorState, RouteStep } from '@melkens/shared';
+import { IMUHardwareBridge, IMUSensorData, IMUConfig } from './IMUHardwareBridge';
 
 export interface HardwareConfig {
   serialPort?: string;
@@ -10,6 +11,12 @@ export interface HardwareConfig {
   tcpPort?: number;
   usbVendorId?: string;
   usbProductId?: string;
+  imu?: {
+    enabled: boolean;
+    serialPort?: string;
+    baudRate?: number;
+    autoDetect?: boolean;
+  };
 }
 
 export interface HardwareMessage {
@@ -29,6 +36,28 @@ export interface PhysicalSensorData {
   ultrasonicDistances: number[];
 }
 
+export interface HardwareStatus {
+  connected: boolean;
+  mode: string;
+  config: HardwareConfig;
+  imu: {
+    connected: boolean;
+    hardwareMode: boolean;
+    port: string;
+    lastDataTimestamp?: number;
+    error?: string;
+  };
+}
+
+export interface SensorReadings {
+  magneticPosition?: { x: number; y: number; detected: boolean };
+  imu?: IMUSensorData;
+  encoders?: { left: number; right: number };
+  battery?: { voltage: number; current: number; percentage: number };
+  temperature?: number[];
+  ultrasonicDistances?: number[];
+}
+
 export class HardwareBridge extends EventEmitter {
   private config: HardwareConfig;
   private serialPort?: SerialPort;
@@ -36,15 +65,30 @@ export class HardwareBridge extends EventEmitter {
   private isConnected = false;
   private messageBuffer: HardwareMessage[] = [];
   private maxBufferSize = 10000;
+  private imuBridge?: IMUHardwareBridge;
+  private imuUpdateInterval?: NodeJS.Timeout;
 
   // Hardware abstraction layer flags
   private hilMode = false; // Hardware-in-the-loop mode
   private virtualMode = true; // Virtual simulation mode
   private mixedMode = false; // Mixed virtual/physical mode
 
-  constructor(config: HardwareConfig) {
+  constructor(config: HardwareConfig = {}) {
     super();
-    this.config = config;
+    this.config = {
+      serialPort: undefined,
+      baudRate: 9600,
+      canInterface: undefined,
+      tcpPort: undefined,
+      usbVendorId: undefined,
+      usbProductId: undefined,
+      imu: {
+        enabled: false,
+        baudRate: 115200,
+        autoDetect: true,
+        ...config.imu
+      }
+    };
   }
 
   // Initialize hardware connections
@@ -60,6 +104,11 @@ export class HardwareBridge extends EventEmitter {
       
       if (this.config.tcpPort) {
         await this.initializeTCP();
+      }
+
+      // Initialize IMU bridge if enabled
+      if (this.config.imu?.enabled) {
+        this.initializeIMU();
       }
 
       this.emit('hardware_ready');
@@ -302,6 +351,12 @@ export class HardwareBridge extends EventEmitter {
     }
     this.isConnected = false;
     this.emit('hardware_disconnected');
+    
+    if (this.imuBridge) {
+      await this.imuBridge.close();
+    }
+    
+    this.stopIMUDataStream();
   }
 
   // Add message to buffer
@@ -327,5 +382,213 @@ export class HardwareBridge extends EventEmitter {
   private getConnectionStartTime(): number {
     // This would track actual connection start time
     return Date.now() - 10000; // Placeholder
+  }
+
+  private async initializeIMU(): Promise<void> {
+    try {
+      this.imuBridge = new IMUHardwareBridge({
+        serialPort: this.config.imu?.serialPort,
+        baudRate: this.config.imu?.baudRate || 115200,
+        autoDetect: this.config.imu?.autoDetect || true
+      });
+
+      this.setupIMUEventHandlers();
+      
+      if (this.config.imu?.serialPort || this.config.imu?.autoDetect) {
+        await this.imuBridge.initialize(this.config.imu?.serialPort);
+      }
+
+      this.emit('imu_initialized');
+    } catch (error) {
+      this.emit('imu_error', error);
+      console.error('Failed to initialize IMU hardware:', error);
+    }
+  }
+
+  private setupIMUEventHandlers(): void {
+    if (!this.imuBridge) return;
+
+    this.imuBridge.on('connected', () => {
+      this.emit('imu_connected');
+      this.startIMUDataStream();
+    });
+
+    this.imuBridge.on('disconnected', () => {
+      this.emit('imu_disconnected');
+      this.stopIMUDataStream();
+    });
+
+    this.imuBridge.on('imu_data', (data: IMUSensorData) => {
+      this.emit('sensor_data', { imu: data });
+      this.emit('imu_data_received', data);
+    });
+
+    this.imuBridge.on('error', (error) => {
+      this.emit('imu_error', error);
+    });
+
+    this.imuBridge.on('hardware_mode_enabled', () => {
+      this.emit('imu_hardware_mode_enabled');
+    });
+
+    this.imuBridge.on('hardware_mode_disabled', () => {
+      this.emit('imu_hardware_mode_disabled');
+    });
+
+    this.imuBridge.on('fault_injection_updated', (faults) => {
+      this.emit('imu_fault_injection_updated', faults);
+    });
+
+    this.imuBridge.on('crc_error', (error) => {
+      this.emit('imu_crc_error', error);
+    });
+
+    this.imuBridge.on('parse_error', (error) => {
+      this.emit('imu_parse_error', error);
+    });
+  }
+
+  private startIMUDataStream(): void {
+    // Stream IMU data every 50ms as requested
+    this.imuUpdateInterval = setInterval(() => {
+      const data = this.imuBridge?.getCurrentSensorData();
+      if (data) {
+        this.emit('imu_stream_data', data);
+      }
+    }, 50);
+  }
+
+  private stopIMUDataStream(): void {
+    if (this.imuUpdateInterval) {
+      clearInterval(this.imuUpdateInterval);
+      this.imuUpdateInterval = undefined;
+    }
+  }
+
+  // IMU Control Methods
+  async connectIMU(port?: string): Promise<void> {
+    if (!this.imuBridge) {
+      await this.initializeIMU();
+    }
+    
+    if (this.imuBridge) {
+      await this.imuBridge.initialize(port);
+    }
+  }
+
+  async disconnectIMU(): Promise<void> {
+    if (this.imuBridge) {
+      await this.imuBridge.close();
+    }
+    this.stopIMUDataStream();
+  }
+
+  enableIMUHardwareMode(): void {
+    if (this.imuBridge) {
+      this.imuBridge.enableHardwareMode();
+    }
+  }
+
+  disableIMUHardwareMode(): void {
+    if (this.imuBridge) {
+      this.imuBridge.disableHardwareMode();
+    }
+  }
+
+  isIMUInHardwareMode(): boolean {
+    return this.imuBridge?.isInHardwareMode() || false;
+  }
+
+  getIMUStatus(): any {
+    if (!this.imuBridge) {
+      return {
+        connected: false,
+        hardwareMode: false,
+        port: 'Not initialized',
+        error: 'IMU bridge not initialized'
+      };
+    }
+
+    const status = this.imuBridge.getConnectionStatus();
+    return {
+      connected: status.connected,
+      hardwareMode: status.hardwareMode,
+      port: status.port,
+      lastDataTimestamp: status.lastData?.timestamp,
+      error: status.connected ? undefined : 'Not connected'
+    };
+  }
+
+  getCurrentIMUData(): IMUSensorData | null {
+    return this.imuBridge?.getCurrentSensorData() || null;
+  }
+
+  // IMU Fault Injection Methods
+  setIMUFaultInjection(faults: any): void {
+    if (this.imuBridge) {
+      this.imuBridge.setFaultInjection(faults);
+    }
+  }
+
+  getIMUFaultInjection(): any {
+    return this.imuBridge?.getFaultInjection() || null;
+  }
+
+  clearIMUFaultInjection(): void {
+    if (this.imuBridge) {
+      this.imuBridge.clearFaultInjection();
+    }
+  }
+
+  // IMU Testing Methods
+  async testIMUConnection(timeoutMs: number = 5000): Promise<boolean> {
+    if (!this.imuBridge) {
+      return false;
+    }
+    return await this.imuBridge.testConnection(timeoutMs);
+  }
+
+  async detectIMUPorts(): Promise<string[]> {
+    if (!this.imuBridge) {
+      this.imuBridge = new IMUHardwareBridge();
+    }
+    return await this.imuBridge.detectAvailablePorts();
+  }
+
+  getIMULogFilePath(): string {
+    return this.imuBridge?.getLogFilePath() || '';
+  }
+
+  // Override existing methods to include IMU data
+  getStatus(): HardwareStatus {
+    return {
+      connected: this.isConnected,
+      mode: this.getConnectionStatus().mode,
+      config: this.config,
+      imu: this.getIMUStatus()
+    };
+  }
+
+  getCurrentSensorData(): SensorReadings {
+    const physicalData = this.getCurrentPhysicalSensorData();
+    const imuData = this.getCurrentIMUData();
+
+    return {
+      ...physicalData,
+      imu: imuData
+    };
+  }
+
+  private getCurrentPhysicalSensorData(): PhysicalSensorData {
+    // This method would fetch actual physical sensor data from hardware
+    // For now, it's a placeholder returning dummy data
+    return {
+      magneticPosition: { x: 0, y: 0, detected: false },
+      imuData: { ax: 0, ay: 0, az: 0, gx: 0, gy: 0, gz: 0 },
+      encoders: { left: 0, right: 0 },
+      battery: { voltage: 12, current: 0, percentage: 100 },
+      temperature: [25],
+      ultrasonicDistances: [0]
+    };
   }
 }

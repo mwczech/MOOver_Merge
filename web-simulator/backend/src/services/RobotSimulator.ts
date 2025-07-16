@@ -15,6 +15,8 @@ import {
   ERROR_MESSAGES
 } from '@melkens/shared';
 import { v4 as uuidv4 } from 'uuid';
+import { HardwareBridge } from './HardwareBridge';
+import { IMUSensorData } from './IMUHardwareBridge';
 
 export class RobotSimulator extends EventEmitter {
   private robotState: RobotState;
@@ -25,6 +27,8 @@ export class RobotSimulator extends EventEmitter {
   private stepStartTime: number = 0;
   private stepProgress: number = 0;
   private isExecutingStep: boolean = false;
+  private hardwareBridge?: HardwareBridge;
+  private useHardwareIMU = false;
 
   constructor() {
     super();
@@ -206,7 +210,34 @@ export class RobotSimulator extends EventEmitter {
   private updateSensors(): void {
     const now = Date.now();
     
-    // Simulate sensor noise and realistic values
+    // Check if we should use hardware IMU data
+    if (this.useHardwareIMU && this.hardwareBridge) {
+      const imuData = this.hardwareBridge.getCurrentIMUData();
+      if (imuData) {
+        // Use real IMU data and update robot position accordingly
+        this.updateIMUFromHardware(imuData);
+        
+        // Still simulate other sensors
+        this.robotState.sensors.temperature = 25 + (Math.random() - 0.5) * 5;
+        this.robotState.sensors.batteryVoltage = Math.max(20, 24.5 - (Math.random() * 0.1));
+        
+        // When using hardware IMU, don't simulate encoders - they should come from hardware too
+        // For now, keep simulated encoders until hardware provides them
+        if (this.robotState.motors.isRunning) {
+          const deltaTime = (now - this.robotState.position.timestamp) / 1000;
+          const distance = (this.robotState.motors.leftSpeed + this.robotState.motors.rightSpeed) / 2 * deltaTime * 0.01;
+          this.robotState.sensors.encoderLeft += distance * 100; // ticks per mm
+          this.robotState.sensors.encoderRight += distance * 100;
+        }
+        
+        return; // Skip simulated sensor updates
+      } else {
+        // Hardware mode enabled but no data available - log warning
+        this.log('warning', 'RobotSimulator', 'Hardware IMU mode enabled but no data available, using simulation');
+      }
+    }
+    
+    // Use simulated sensor data (default behavior)
     this.robotState.sensors.imuAngle = this.robotState.position.angle + (Math.random() - 0.5) * 0.1;
     this.robotState.sensors.magneticPosition = this.calculateMagneticPosition();
     this.robotState.sensors.temperature = 25 + (Math.random() - 0.5) * 5;
@@ -385,5 +416,92 @@ export class RobotSimulator extends EventEmitter {
     this.robotState.sensors.encoderRight = 0;
     
     this.log('info', 'RobotSimulator', 'Robot position reset');
+  }
+
+  // Hardware-in-the-loop integration methods
+  public setHardwareBridge(hardwareBridge: HardwareBridge): void {
+    this.hardwareBridge = hardwareBridge;
+    this.setupHardwareBridgeListeners();
+  }
+
+  public enableHardwareIMU(): void {
+    if (this.hardwareBridge && this.hardwareBridge.isIMUInHardwareMode()) {
+      this.useHardwareIMU = true;
+      this.log('info', 'RobotSimulator', 'Hardware IMU mode enabled - using real sensor data');
+    } else {
+      this.log('warning', 'RobotSimulator', 'Cannot enable hardware IMU - bridge not connected');
+    }
+  }
+
+  public disableHardwareIMU(): void {
+    this.useHardwareIMU = false;
+    this.log('info', 'RobotSimulator', 'Hardware IMU mode disabled - using simulated data');
+  }
+
+  public isUsingHardwareIMU(): boolean {
+    return this.useHardwareIMU && this.hardwareBridge?.isIMUInHardwareMode() || false;
+  }
+
+  private setupHardwareBridgeListeners(): void {
+    if (!this.hardwareBridge) return;
+
+    this.hardwareBridge.on('imu_hardware_mode_enabled', () => {
+      if (this.useHardwareIMU) {
+        this.log('info', 'RobotSimulator', 'IMU hardware connection established');
+      }
+    });
+
+    this.hardwareBridge.on('imu_hardware_mode_disabled', () => {
+      this.useHardwareIMU = false;
+      this.log('warning', 'RobotSimulator', 'IMU hardware disconnected - switching to simulation');
+    });
+  }
+
+  private updateIMUFromHardware(imuData: IMUSensorData): void {
+    if (!this.useHardwareIMU || !imuData) return;
+
+    // Use real IMU data for navigation
+    this.robotState.sensors.imuAngle = imuData.ahrs.yaw;
+    
+    // Update position based on real IMU data
+    const deltaTime = SIMULATION_SETTINGS.UPDATE_RATE / 1000; // seconds
+    
+    // Calculate movement based on accelerometer integration (simplified)
+    const acceleration = Math.sqrt(
+      imuData.accelerometer.x ** 2 + 
+      imuData.accelerometer.y ** 2
+    );
+    
+    if (acceleration > 0.1) { // Movement threshold
+      const velocity = acceleration * deltaTime * 100; // Convert to pixels/second
+      const direction = Math.atan2(imuData.accelerometer.y, imuData.accelerometer.x);
+      
+      this.robotState.position.x += Math.cos(direction) * velocity * deltaTime;
+      this.robotState.position.y += Math.sin(direction) * velocity * deltaTime;
+    }
+
+    // Use gyroscope for angle updates
+    const angularVelocity = imuData.gyroscope.z; // rad/s
+    this.robotState.position.angle += angularVelocity * deltaTime * (180 / Math.PI); // Convert to degrees
+
+    // Normalize angle to 0-360 range
+    while (this.robotState.position.angle < 0) this.robotState.position.angle += 360;
+    while (this.robotState.position.angle >= 360) this.robotState.position.angle -= 360;
+
+    // Use magnetometer data for magnetic line detection
+    const magneticStrength = Math.sqrt(
+      imuData.magnetometer.x ** 2 + 
+      imuData.magnetometer.y ** 2 + 
+      imuData.magnetometer.z ** 2
+    );
+    
+    // Update magnetic position based on detected magnets
+    if (imuData.magnetBar.detectedMagnets.length > 0) {
+      const primaryMagnet = imuData.magnetBar.detectedMagnets[0];
+      // Map magnet index to position (-15 to +15 range)
+      this.robotState.sensors.magneticPosition = (primaryMagnet - 16) * 0.625; // 0.625 cm per magnet
+    }
+
+    this.robotState.position.timestamp = Date.now();
   }
 }
