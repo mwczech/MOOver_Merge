@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Configuration files (may contain sensitive data)
+simulator_config.json
+sync_config.json
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+
+# Data files
+data/
+*.csv
+*.json.backup
+
+# Backups
+backups/
+*.backup
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Virtual environments
+bin/
+lib/
+lib64/
+share/
+pyvenv.cfg
+
+# Device specific
+/dev/
+*.device
+
+# Test files
+test_*.py
+*_test.py

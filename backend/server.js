@@ -158,6 +158,79 @@ app.post('/api/firmware/pmb', upload.single('firmware'), (req, res) => {
     });
 });
 
+// Local Simulator Synchronization API
+app.get('/api/routes', (req, res) => {
+    // Return available routes for local simulator
+    const routes = {
+        "A": {
+            "name": "Route A - Square Pattern",
+            "waypoints": [
+                {"x": 0, "y": 0, "speed": 50},
+                {"x": 100, "y": 0, "speed": 50},
+                {"x": 100, "y": 100, "speed": 50},
+                {"x": 0, "y": 100, "speed": 50},
+                {"x": 0, "y": 0, "speed": 30}
+            ],
+            "description": "Basic square navigation pattern"
+        },
+        "B": {
+            "name": "Route B - Figure Eight", 
+            "waypoints": [
+                {"x": 0, "y": 50, "speed": 40},
+                {"x": 50, "y": 0, "speed": 40},
+                {"x": 100, "y": 50, "speed": 40},
+                {"x": 50, "y": 100, "speed": 40},
+                {"x": 0, "y": 50, "speed": 30}
+            ],
+            "description": "Figure-eight pattern for advanced testing"
+        },
+        "C": {
+            "name": "Route C - Linear Sweep",
+            "waypoints": [
+                {"x": 0, "y": 0, "speed": 60},
+                {"x": 200, "y": 0, "speed": 60},
+                {"x": 200, "y": 20, "speed": 30},
+                {"x": 0, "y": 20, "speed": 60},
+                {"x": 0, "y": 40, "speed": 30}
+            ],
+            "description": "Linear sweeping pattern for area coverage"
+        }
+    };
+    
+    res.json(routes);
+});
+
+app.post('/api/upload_route', (req, res) => {
+    const { name, data } = req.body;
+    
+    if (!name || !data) {
+        return res.status(400).json({
+            success: false,
+            message: 'Route name and data are required'
+        });
+    }
+    
+    console.log(`Route uploaded from local simulator: ${name}`);
+    
+    // In a real implementation, you would save this to a database
+    // For now, we just acknowledge the upload
+    res.json({
+        success: true,
+        message: `Route ${name} uploaded successfully`,
+        route: { name, data }
+    });
+});
+
+app.get('/api/local_sync_status', (req, res) => {
+    res.json({
+        server_status: 'online',
+        last_sync: new Date().toISOString(),
+        routes_count: 3,
+        version: '1.0.0',
+        supports_local_sync: true
+    });
+});
+
 app.post('/api/hil/connect', (req, res) => {
     robot.state.pmbConnection = "HIL Connected";
     res.json({ 
